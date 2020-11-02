@@ -1,0 +1,87 @@
+commit 790e34a3a8c9e8d4487dc622a72421fbc5a838b7                                                                         Author: Rasmus Ojala <rasmus.ojala@icloud.com>                                                                          Date:   Mon Nov 2 10:36:06 2020 +0200                                                                                                                                                                                                               tiedostojen sisallot vaihdettu                                                                                      
+ eka.txt    | 7 +------
+ kolmas.txt | 2 +-
+ 2 files changed, 2 insertions(+), 7 deletions(-)
+
+commit 167758089af38be0b84c79093ec852902c1d1a62
+Author: Rasmus Ojala <rasmus.ojala@icloud.com>
+Date:   Mon Nov 2 10:32:57 2020 +0200
+
+    nimi tiedosto.txt muutettu muotoon eka.txt
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 11b7945231ff759d5e0b6ea6cc573ec582bc9f60
+Author: Rasmus Ojala <rasmus.ojala@icloud.com>
+Date:   Mon Nov 2 10:31:18 2020 +0200
+
+    Toinen.txt nyt poistettu
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 681b1e7da2852d2e4888ca0c569b611c5fd2d93d
+Author: Rasmus Ojala <rasmus.ojala@icloud.com>
+Date:   Mon Nov 2 10:18:16 2020 +0200
+
+    Tiedosto.txt lyhennetty
+
+ tiedosto.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit f1ec0a24fd7680beb5c9640ca495450e8ae06e3e
+Author: Rasmus Ojala <rasmus.ojala@icloud.com>
+Date:   Mon Nov 2 10:17:09 2020 +0200
+
+    Tiedosto.txt muutettu
+
+ tiedosto.txt | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+commit 0f55b8c6f9371f244c0abc5db7d04ff5a25aab49
+Author: Rasmus Ojala <rasmus.ojala@icloud.com>
+Date:   Mon Nov 2 10:13:22 2020 +0200
+
+    uusi hakemisto
+
+ stuff/tiedostostuff.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit d67352ba210ec446d24c978796635be4297703d5
+Author: Rasmus Ojala <rasmus.ojala@icloud.com>
+Date:   Mon Nov 2 10:12:04 2020 +0200
+
+    muutetut tiedostot
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 0fd6b1d29393018f1bd1e5b62ff20f38c4f735c4
+Author: Rasmus Ojala <rasmus.ojala@icloud.com>
+Date:   Mon Nov 2 10:10:54 2020 +0200
+
+    kolmas tiedosto
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 227396fcf63d88cb72700d13048211160e60c577
+Author: Rasmus Ojala <rasmus.ojala@icloud.com>
+Date:   Mon Nov 2 10:08:22 2020 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 6827da90a068b503fb5e632c5ab11f2bf2a9b5c4
+Author: Rasmus Ojala <rasmus.ojala@icloud.com>
+Date:   Mon Nov 2 09:57:44 2020 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
