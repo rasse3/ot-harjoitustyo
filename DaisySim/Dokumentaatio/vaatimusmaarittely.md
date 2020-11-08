@@ -1,4 +1,4 @@
-**Bold*  Vaatimusmäärittely  **Bold**
+* Vaatimusmäärittely *
  
  
 Sovelluksen tarkoitus
