@@ -18,18 +18,14 @@ Perusversion tarjoama toiminnallisuus
 
 Perusversiossa on mahdollista alustaa simulaatio seuraavin parametrein:
 
-*Tähti*
+*Tähti ja planeetan rata*
 
 Peruskuumuus (tässä tulee mahdollisuus valita listasta eri spektriluokan tähtiä tai asettaa ihan oma arvo).
-Flaren todennäköisyys (jälleen mahdollista valita listasta olemassaolevia arvoja tai asettaa oma prosentti).
+Flaren (auringonpurkaus) todennäköisyys (jälleen mahdollista valita listasta olemassaolevia arvoja tai asettaa oma prosentti).
 Flaren kuumuus prosentteina tähden normaalista tehosta.
 Kaikkia näitä arvioita voi säätää aloitusruudulla tarjotuilla (ajan) funktioilla tai sitten käyttäjä voi määrittää oman funktion.
 Valmiita funktoita on esim. sinikäyrää noudattava peruskuumuus
-
-*Kiertorata*
-
-Kierorata vaikutta saadun säteilyn määrään erityisesti etäisyyden puolesta
-Myös radan soikeutta voi säätää
+Kierorata vaikuttaa saadun säteilyn määrään erityisesti etäisyyden puolesta
 
 *Ilmakehä*
 
@@ -46,7 +42,7 @@ Kasveilla on ominainen ihannelämpötila, jonka lisäksi ne heijastavat tähden 
 
 *Eläimet*
 
-Eläimet syövät joko kasveja tai toisia eläimiä. Niillä on lisääntymisnopeus, ruokahalu ja elinkikä, jotka osittain riippuvat toisistaan.
+Eläimet syövät joko kasveja tai toisia eläimiä. Niillä on lisääntymisnopeus, ruokahalu ja elinikä, jotka osittain riippuvat toisistaan.
 Kasvinsyöjät kuluttavat kasveja ja happea, tuottavat hiilidioksidia. Lihansyöjät kuluttavat kasvinsyöjiä ja tuottavat hiildioksidia.
 Isot eläimet syövät yleensä enemmän, lisääntyvät hitaammin ja kehittyvät hitaammin, mutta elävät pitempään.
 Pienillä eläimillä päinvastoin.
