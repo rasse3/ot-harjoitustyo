@@ -1,4 +1,6 @@
 ﻿Vaatimusmäärittely
+ 
+ 
 Sovelluksen tarkoitus
 
 Sovelluksen tarkoitus on mallintaa ja simuloida planeettaa, jolla asuvat eliöt vakauttavat planeetan ilmastonvaihtelua ja pitävät yllä itselleen sopivia olosuhteita planeetalla. Erityisesti tarkoitus on tarkkailla, miten eliöt korjaavat ulkoisia muutoksia olosuhteissa, kuten vaikkapa tähden aktiivisuuden vaihtelua.
