@@ -60,6 +60,7 @@ Parametrit tähdelle, eliöille ja kiertoradalle sekä ilmaston alkuehdot
 Pelaaja saa valita, muuttuvatko eliöt hieman ajan myötä (evoluutio)
 Jos evoluutio valitaan, voidaan myös määrätä saako uusia lajeja syntyä
 Pelaajalla on myös vapaus valita valmiista simulaatioasetuksista ja myös mahdollisuus lisätä tietokantaan aloitusparametrejä. Myös jo aloitettuja simulaatioita voi ladata ja jatkaa
+
 Voidaan määrittää myös mahdollinen meren osuus planeetasta, jossa osuudessa ei siis ole eliöitä (alkuversiossa)
 Eryityisesti voidaan määritellä simuloitavaksi alkuperäinen ”Daisyworld”, jossa mitattiin vain kasvien määriä (tummat ja vaaleat)
 Tässä on mahdollista alustaa laaja verkosto eri tavoin toimivia kasveja ja eläimiä. Vaikkapa ominaisuuksiltaan todellisen maailman rottia, jäniksiä ja lehmiä vastaavia eliöitä.
