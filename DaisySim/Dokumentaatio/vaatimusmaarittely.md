@@ -7,7 +7,9 @@ Käyttöliittymäluonnos
 
 Käyttöliittymä koostuu kahdesta osasta: simulaation alkuehtojen määrittely, ja simuloinnin hallinta (katkaisu, tallennus, nopeutus). Hallintavaiheessa käyttöliittymä näyttää käyrillä, miten planeetan eliöiden määrät vaihtelevat ja miten planeetan olosuhteet muuttuvat. Ohjelman auetessa avautuu ikkuna, joka kysyy jatketaanko edellistä ajoa, vai luodaanko uusi.
 
+Format: ![Alkuruutu](https://github.com/rasse3/ot-harjoitustyo/blob/master/DaisySim/Dokumentaatio/kuvat/alkuruutu.bmp)
 
+Format: ![Ajoruutu](https://github.com/rasse3/ot-harjoitustyo/blob/master/DaisySim/Dokumentaatio/kuvat/ajoruutu.bmp)
 
 
 Perusversion tarjoama toiminnallisuus
