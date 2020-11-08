@@ -7,6 +7,9 @@ Käyttöliittymäluonnos
 
 Käyttöliittymä koostuu kahdesta osasta: simulaation alkuehtojen määrittely, ja simuloinnin hallinta (katkaisu, tallennus, nopeutus). Hallintavaiheessa käyttöliittymä näyttää käyrillä, miten planeetan eliöiden määrät vaihtelevat ja miten planeetan olosuhteet muuttuvat. Ohjelman auetessa avautuu ikkuna, joka kysyy jatketaanko edellistä ajoa, vai luodaanko uusi.
 
+
+
+
 Perusversion tarjoama toiminnallisuus
 
 Perusversiossa on mahdollista alustaa simulaatio seuraavin parametrein:
