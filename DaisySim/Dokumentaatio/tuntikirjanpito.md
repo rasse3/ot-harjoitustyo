@@ -20,7 +20,7 @@ Paiva 		Tunteja 	Mitä tein
 8.11		1		Tein käyttäliittymäluonnoksen vaatimusmäärittelyyn
 
 11.11		2		Tutustuin kuvaajien piirtämiseen Javassa.
-11.11		1		Tein ensimmäisen kuvaajan tähden säteilytehosta	- Tein sen main-luokkaan, mutta aion siirtää sen GUI-pakettiin myöhemmin.
+11.11		1		Tein ensimmäisen kuvaajan tähden säteilytehosta
 11.11		1		Suunnittelin alustus-ruutua
 
 
