@@ -53,8 +53,8 @@ public class Main {
         
         
        //LOgger output
-        for (Double dbl : logger.getPlans()){
-            System.out.println(dbl);
+        for (Double dbl : logger.getSols()){
+            
             
         
         
