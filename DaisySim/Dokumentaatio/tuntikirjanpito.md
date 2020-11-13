@@ -23,4 +23,5 @@ Paiva 		Tunteja 	Mitä tein
 11.11		1		Tein ensimmäisen kuvaajan tähden säteilytehosta
 11.11		1		Suunnittelin alustus-ruutua
 
+13.11   1   Tein checkstyle-korjauksia
 
