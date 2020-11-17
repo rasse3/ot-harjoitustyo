@@ -26,4 +26,6 @@ Paiva 		Tunteja 	Mitä tein
 13.11   1   Tein checkstyle-korjauksia
 13.11   2   Hahmottelin alkuruutua (alustusruutu)
 
+17.11   2   Kokeilin main-ohjelmaa
+
 Yhteensä 25
