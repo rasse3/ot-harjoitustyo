@@ -20,7 +20,7 @@ Perusversiossa on mahdollista alustaa simulaatio seuraavin parametrein:
 
 *Tähti ja planeetan rata*
 
-Peruskuumuus (tässä tulee mahdollisuus valita listasta eri spektriluokan tähtiä tai asettaa ihan oma arvo).
+Peruskuumuus (tässä tulee mahdollisuus valita listasta eri spektriluokan tähtiä tai asettaa ihan oma arvo). 
 Flaren (auringonpurkaus) todennäköisyys (jälleen mahdollista valita listasta olemassaolevia arvoja tai asettaa oma prosentti).
 Flaren kuumuus prosentteina tähden normaalista tehosta.
 Kaikkia näitä arvioita voi säätää aloitusruudulla tarjotuilla (ajan) funktioilla tai sitten käyttäjä voi määrittää oman funktion.
