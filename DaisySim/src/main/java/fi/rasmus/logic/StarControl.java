@@ -11,10 +11,10 @@ import java.util.Random;
  * @author Rasmus
  */
 public class StarControl {
-    
+
     int seed = 1000;
     Random random = new Random(seed);
-    
+
     double baseluminosity;
     //This sets the power of a flare with 1.00 as the normal base luminosity
     double flareEfficient;
@@ -22,16 +22,15 @@ public class StarControl {
     double flarePropability;
     // This is the current date in days
     double phase;
-    
+
     //Function handling defines the used function to compute daily power
     FunctionHandler functionHandler = new FunctionHandler();
     String function = "sine";
-    
+
     // This is a list of daily powers computed or inserted in an array;
     double[] dailyPower;
-    
-    
-        public StarControl() {
+
+    public StarControl() {
         baseluminosity = 1;
         flareEfficient = 1.01;
         flarePropability = 0.25;
@@ -53,7 +52,7 @@ public class StarControl {
         } else {
             this.flareEfficient = flareEff;
         }
-        if (flareProb < 0 || flareProb> 1) {
+        if (flareProb < 0 || flareProb > 1) {
             this.flarePropability = 0.25;
             System.out.println("Todennäköisyys asetettu arvoon 0.25 virheellisen syötteen takia");
         } else {
@@ -106,11 +105,11 @@ public class StarControl {
         return this.flarePropability;
     }
 
-    public int getAmountOfFlaresPerDay(double flare_prob) {
+    public int getAmountOfFlaresPerDay(double flareProb) {
         int number = 0;
         for (int i = 0; i < 4; i++) {
             double helperdbl = random.nextDouble();
-            if (helperdbl < flare_prob) {
+            if (helperdbl < flareProb) {
                 number++;
             }
         }

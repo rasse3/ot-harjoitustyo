@@ -37,9 +37,8 @@ public class Main {
         //LOgger output
         for (Double dbl : logger.getSols()) {
 
+            System.out.println("heLLO World!");
         }
 
-
-    
-}
+    }
 }

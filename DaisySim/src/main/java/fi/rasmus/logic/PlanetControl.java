@@ -10,7 +10,7 @@ package fi.rasmus.logic;
  * @author Rasmus
  */
 public class PlanetControl {
-    
+
     double albedo;
     double sea;
     double seaAlbedo = 0.06;
@@ -19,12 +19,13 @@ public class PlanetControl {
     double oxygen;
     double watervapour;
     double cloudiness;
+    double cloudAlbedo;
     Flora florae;
 
     public PlanetControl(double seaPercentage) {
 
         this.sea = seaPercentage;
-        this.florae = new Flora();
+        this.florae = new Flora(this.sea);
     }
 
     public double radiationAbsorption(double starIrradiance, double albedo) {
@@ -39,13 +40,15 @@ public class PlanetControl {
     public void calculateAlbedo() {
         albedo = sea * seaAlbedo;
         albedo = albedo + plantAlbedo();
-        albedo = albedo + cloudiness;
+        albedo = albedo - cloudiness * albedo + cloudiness * cloudAlbedo;
 
     }
 
     public double plantAlbedo() {
 
-        return 0;
+        double plantAlbedo = florae.countAlbedo();
+
+        return plantAlbedo;
     }
 
     public double calculateTemperature() {
@@ -55,7 +58,12 @@ public class PlanetControl {
         return temperature;
     }
 
+    public double getAlbedo() {
+        return this.albedo;
+    }
 
-    
-    
+    public void addPlantSpecies(SpeciesP plant) {
+        this.florae.addSpecies(plant);
+    }
+
 }
