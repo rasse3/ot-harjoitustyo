@@ -11,61 +11,51 @@ package fi.rasmus.logic;
  */
 public class PlanetControl {
     
-    
     double albedo;
     double sea;
-    double sea_albedo = 0.06;
-    double carbon_dioxide;
+    double seaAlbedo = 0.06;
+    double carbonDioxide;
     double methane;
     double oxygen;
     double watervapour;
     double cloudiness;
     Flora florae;
-    
-    
-    public PlanetControl(double sea_percentage){
-        
-        this.sea = sea_percentage;
+
+    public PlanetControl(double seaPercentage) {
+
+        this.sea = seaPercentage;
         this.florae = new Flora();
     }
-    
-    public double radiationAbsorption(double starIrradiance, double albedo)
-    {
+
+    public double radiationAbsorption(double starIrradiance, double albedo) {
         return starIrradiance * albedo;
     }
-    
-    public double temperatureThisDay(double irrad){
+
+    public double temperatureThisDay(double irrad) {
         calculateAlbedo();
         return radiationAbsorption(irrad, albedo);
     }
-    
-    public void calculateAlbedo(){
-        albedo = sea*sea_albedo;
+
+    public void calculateAlbedo() {
+        albedo = sea * seaAlbedo;
         albedo = albedo + plantAlbedo();
-        albedo = albedo + cloudiness;    
-           
-        }
-    
-    public double plantAlbedo(){
-      
-        
-        
+        albedo = albedo + cloudiness;
+
+    }
+
+    public double plantAlbedo() {
+
         return 0;
     }
-   
-    public double calculateTemperature(){
-        
+
+    public double calculateTemperature() {
+
         double temperature = 0;
-        
-        
-        
-        
+
         return temperature;
     }
-    
-    
-    
-    
+
+
     
     
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fi.rasmus.GUI;
+package fi.rasmus.gui;
 
 import org.knowm.xchart.QuickChart;
 import org.knowm.xchart.SwingWrapper;

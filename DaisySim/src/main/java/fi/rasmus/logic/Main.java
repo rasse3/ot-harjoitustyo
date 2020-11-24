@@ -10,57 +10,36 @@ package fi.rasmus.logic;
  * @author Rasmus
  */
 public class Main {
-    
-    
-    
-    
-    
-    public static void main (String [] args){
-        
-        
-        
-        
-        
+
+    public static void main(String[] args) {
+
         //These will be moved to a config file;
         Boolean logging = true;
         int loggingEveryTimeUnit = 1;   // 1 Day set as frequency of logging
-        
+
         //Game world controller creations;
-        StarControl SC = new StarControl();
-        PlanetControl PC = new PlanetControl(0.75);
+        StarControl sc = new StarControl();
+        PlanetControl pc = new PlanetControl(0.75);
         Logger logger = new Logger();
-        
-        
+
         logger.setLogging(logging);
         logger.setTimeUnit(loggingEveryTimeUnit);
-        Day day = new Day(SC, PC, logger);
-        
-        
-        
-           System.out.println(SC.returnFunctionHandlerStats());
-        
-        
-        
-        
-        
-        
+        Day day = new Day(sc, pc, logger);
+
+        System.out.println(sc.returnFunctionHandlerStats());
+
         //Test copmutation of 100 days;
-        for (int j = 0 ; j < 100 ; j++){
+        for (int j = 0; j < 100; j++) {
             day.executeADay();
-            
-            
+
         }
-        
-        
-       //LOgger output
-        for (Double dbl : logger.getSols()){
-            
-            
-        
-        
-    }
-    
-    
+
+        //LOgger output
+        for (Double dbl : logger.getSols()) {
+
+        }
+
+
     
 }
 }

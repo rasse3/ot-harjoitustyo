@@ -17,9 +17,9 @@ public class StarControl {
     
     double baseluminosity;
     //This sets the power of a flare with 1.00 as the normal base luminosity
-    double flare_efficient;
+    double flareEfficient;
     //This is the propability of a flare in the default simulation time-step, which is currently and in foreseeable future 1 day
-    double flare_propability;
+    double flarePropability;
     // This is the current date in days
     double phase;
     
@@ -31,150 +31,133 @@ public class StarControl {
     double[] dailyPower;
     
     
-    
-    public StarControl(){
+        public StarControl() {
         baseluminosity = 1;
-        flare_efficient = 1.01;
-        flare_propability = 0.25;
+        flareEfficient = 1.01;
+        flarePropability = 0.25;
         phase = 0.0;
-        
+
     }
-    
-    
-    
-    
-    public StarControl(double luminosity, double flare_eff, double flare_prob){
-        if(luminosity <= 0) {
+
+    public StarControl(double luminosity, double flareEff, double flareProb) {
+        if (luminosity <= 0) {
             this.baseluminosity = 1;
             System.out.println("Tähden kirkkaus asetettiin oletusarvoon virheellisen syötteen takia");
-         } else {
+        } else {
             this.baseluminosity = luminosity;
-        }        
-        
-        
-        if (flare_eff < 1) {
-            this.flare_efficient = 1.00;
+        }
+
+        if (flareEff < 1) {
+            this.flareEfficient = 1.00;
             System.out.println("Tähden kirkkaus ei voi pudota flaren takia");
         } else {
-        this.flare_efficient = flare_eff;
+            this.flareEfficient = flareEff;
         }
-        if( flare_prob < 0 || flare_prob > 1){
-            this.flare_propability = 0.25;
+        if (flareProb < 0 || flareProb> 1) {
+            this.flarePropability = 0.25;
             System.out.println("Todennäköisyys asetettu arvoon 0.25 virheellisen syötteen takia");
-        }
-        else {
-        this.flare_propability = flare_prob;
+        } else {
+            this.flarePropability = flareProb;
         }
         phase = 0.0;
-    
+
     }
-    
-    
-    public void resetRandom(){
+
+    public void resetRandom() {
         this.random = new Random(seed);
     }
-    
-    public void setRandomSeed(int seed){
+
+    public void setRandomSeed(int seed) {
         this.seed = seed;
     }
-    
-    public int getRandomSeed(){
+
+    public int getRandomSeed() {
         return this.seed;
     }
-    
-    public void setStats(double lum, double fleff, double flap){
-        if(lum <= 0){
+
+    public void setStats(double lum, double fleff, double flap) {
+        if (lum <= 0) {
             this.baseluminosity = 1;
         } else {
-        this.baseluminosity = lum;
-        } 
+            this.baseluminosity = lum;
+        }
         if (fleff < 1) {
-            this.flare_efficient = 1;
+            this.flareEfficient = 1;
         } else {
-        this.flare_efficient = fleff;
+            this.flareEfficient = fleff;
         }
-        if(flap > 1 ||flap < 0){
-            this.flare_propability = 0.25;
-        }
-        else {
-        this.flare_propability = flap;
+        if (flap > 1 || flap < 0) {
+            this.flarePropability = 0.25;
+        } else {
+            this.flarePropability = flap;
         }
     }
-    
+
     public double getBaseluminosity() {
         return this.baseluminosity;
-        
+
     }
-    
-    public double getFlareEfficient(){
-        return this.flare_efficient;
+
+    public double getFlareEfficient() {
+        return this.flareEfficient;
     }
-    
-    public double getFlarePropability(){
-        return this.flare_propability;
+
+    public double getFlarePropability() {
+        return this.flarePropability;
     }
-    
-    
-    public int getAmountOfFlaresPerDay(double flare_prob){
+
+    public int getAmountOfFlaresPerDay(double flare_prob) {
         int number = 0;
-        for (int i = 0; i < 4; i++){
+        for (int i = 0; i < 4; i++) {
             double helperdbl = random.nextDouble();
-            if( helperdbl < flare_prob){
+            if (helperdbl < flare_prob) {
                 number++;
             }
         }
         return number;
     }
-    
-    public void addAllowedFunctionToHandler(String function){
+
+    public void addAllowedFunctionToHandler(String function) {
         functionHandler.addToAllowedFunctions(function);
     }
-    
-    public void setupFunctionHandler(String type, double amplitude, double frequency){
-        if(functionHandler.getAllowedFunctions().contains(type)){
-            
-            
-            if(amplitude >= 0 && frequency > 0){
-            functionHandler.setParameters(type, amplitude, frequency);
+
+    public void setupFunctionHandler(String type, double amplitude, double frequency) {
+        if (functionHandler.getAllowedFunctions().contains(type)) {
+
+            if (amplitude >= 0 && frequency > 0) {
+                functionHandler.setParameters(type, amplitude, frequency);
             }
-            
+
         }
-        
+
     }
-    
-    
-    public double radiationPowerThisDay(){
-        double helperdbl = (1 - functionHandler.getValue(phase));                  
-        double flareNumber = getAmountOfFlaresPerDay(flare_propability);            
-        double flarePower = baseluminosity * flareNumber * (1-flare_efficient);         
-        double totalPower = flarePower + (baseluminosity*helperdbl);                
+
+    public double radiationPowerThisDay() {
+        double helperdbl = (1 - functionHandler.getValue(phase));
+        double flareNumber = getAmountOfFlaresPerDay(flarePropability);
+        double flarePower = baseluminosity * flareNumber * (1 - flareEfficient);
+        double totalPower = flarePower + (baseluminosity * helperdbl);
         return totalPower;
     }
-    
-           
-    public void incrementPhase(){
+
+    public void incrementPhase() {
         phase = phase + 1.0;
     }
-    
-    
-    public void setPhase(double phase){
-        if(phase >= 0){
-        this.phase = phase;
+
+    public void setPhase(double phase) {
+        if (phase >= 0) {
+            this.phase = phase;
         } else {
             phase = 0;
         }
     }
-    
-    
-    public double returnPhase(){
+
+    public double returnPhase() {
         return this.phase;
     }
-    
-    
-    public String returnFunctionHandlerStats(){
+
+    public String returnFunctionHandlerStats() {
         return functionHandler.toString();
     }
-    
-    
-    
+
 }

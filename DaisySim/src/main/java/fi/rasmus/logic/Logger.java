@@ -10,59 +10,48 @@ import java.util.ArrayList;
  * @author Rasmus
  */
 public class Logger {
-    
-    
+
     boolean logging = true;
     int timeUnit = 1; // 1 Day
     int timeRan = 0;  // Helper for the computation of time-step
-    ArrayList<Double> solar_luminosities;
-    ArrayList<Double> planetary_temperatures;
-    
-    
-    
-    public Logger(){
-        solar_luminosities = new ArrayList<>();
-        planetary_temperatures = new ArrayList<>();
-        
+    ArrayList<Double> solarLuminosities;
+    ArrayList<Double> planetaryTemperatures;
+
+    public Logger() {
+        solarLuminosities = new ArrayList<>();
+        planetaryTemperatures = new ArrayList<>();
+
     }
-    
-    
-    public void log(double solLum, double planTem){
-        
-       
-        
-        if(logging){
-            
+
+    public void log(double solLum, double planTem) {
+
+        if (logging) {
+
             timeRan++;
-        
-               
-        
-        if (timeRan%timeUnit == 0){
-        
-        solar_luminosities.add(solLum);
-        planetary_temperatures.add(planTem);
-        
-        
-        } 
-        } 
+
+            if (timeRan % timeUnit == 0) {
+
+                solarLuminosities.add(solLum);
+                planetaryTemperatures.add(planTem);
+
+            }
+        }
     }
-    
-    
-    
-    public ArrayList<Double> getSols(){
-        return solar_luminosities;
+
+    public ArrayList<Double> getSols() {
+        return solarLuminosities;
     }
-    
-    public ArrayList<Double> getPlans(){
-        return planetary_temperatures;
+
+    public ArrayList<Double> getPlans() {
+        return planetaryTemperatures;
     }
-    
-    public void setLogging(boolean boo){
+
+    public void setLogging(boolean boo) {
         logging = boo;
     }
-    
-    public void setTimeUnit(int unit){
+
+    public void setTimeUnit(int unit) {
         this.timeUnit = unit;
     }
-    
+
 }

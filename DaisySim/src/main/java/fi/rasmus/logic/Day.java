@@ -10,28 +10,22 @@ package fi.rasmus.logic;
  * @author Rasmus
  */
 public class Day {
-    
-    
-    StarControl SC;
-    PlanetControl PC;
-    Logger log; 
-    
-    public Day(StarControl SC, PlanetControl PC, Logger logger){
-        this.SC = SC;
-        this.PC = PC;
+
+    StarControl sc;
+    PlanetControl pc;
+    Logger log;
+
+    public Day(StarControl sc, PlanetControl pc, Logger logger) {
+        this.sc = sc;
+        this.pc = pc;
         this.log = logger;
     }
-    
-    
-    public void executeADay()
-    {
-        SC.incrementPhase();
-        double radiance = SC.radiationPowerThisDay();
-        double temperature = PC.temperatureThisDay(radiance);
+
+    public void executeADay() {
+        sc.incrementPhase();
+        double radiance = sc.radiationPowerThisDay();
+        double temperature = pc.temperatureThisDay(radiance);
         log.log(radiance, temperature);
     }
-    
-    
-    
-    
+
 }
