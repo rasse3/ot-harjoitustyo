@@ -24,7 +24,7 @@ Peruskuumuus (tässä tulee mahdollisuus valita listasta eri spektriluokan täht
 Flaren (auringonpurkaus) todennäköisyys (jälleen mahdollista valita listasta olemassaolevia arvoja tai asettaa oma prosentti).
 Flaren kuumuus prosentteina tähden normaalista tehosta. **tehty**
 Kaikkia näitä arvioita voi säätää aloitusruudulla tarjotuilla (ajan) funktioilla tai sitten käyttäjä voi määrittää oman funktion.
-Valmiita funktoita on esim. sinikäyrää noudattava peruskuumuus **tehty**
+Valmiita funktoita on esim. sinikäyrää noudattava peruskuumuus **tehty osin**
 Kierorata vaikuttaa saadun säteilyn määrään erityisesti etäisyyden puolesta **tehty**
 
 *Ilmakehä*
@@ -32,7 +32,7 @@ Kierorata vaikuttaa saadun säteilyn määrään erityisesti etäisyyden puolest
 Ilmakehän kaasuista seurataan hapen, hiilidioksidin ja vesihöyryn määriä. 
 Kaasut synnyttävät kasvihuoneilmiön. 
 Hapen suuri määrä saattaa aiheuttaa metsäpaloja, joissa vapautuu hiilidioksidia ja sitoutuu happea. Hiilidioksidin määrä vaikuttaa kasvien ominaisuuksiin, samoin hapen määrä eläinten ominaisuuksiin
-Kasvit saattavat aiheuttaa pilvien tiivistymistä, joka viilentää planeettaa. **tehty**
+Kasvit saattavat aiheuttaa pilvien tiivistymistä, joka viilentää planeettaa. **osin tehty**
 Oletuksena maapallon tämänhetkiset parametrit kaasuosapaineista. **tehty**
 
 
