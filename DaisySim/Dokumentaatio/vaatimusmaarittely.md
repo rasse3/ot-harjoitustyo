@@ -22,23 +22,23 @@ Perusversiossa on mahdollista alustaa simulaatio seuraavin parametrein:
 
 Peruskuumuus (tässä tulee mahdollisuus valita listasta eri spektriluokan tähtiä tai asettaa ihan oma arvo). 
 Flaren (auringonpurkaus) todennäköisyys (jälleen mahdollista valita listasta olemassaolevia arvoja tai asettaa oma prosentti).
-Flaren kuumuus prosentteina tähden normaalista tehosta.
+Flaren kuumuus prosentteina tähden normaalista tehosta. **tehty**
 Kaikkia näitä arvioita voi säätää aloitusruudulla tarjotuilla (ajan) funktioilla tai sitten käyttäjä voi määrittää oman funktion.
-Valmiita funktoita on esim. sinikäyrää noudattava peruskuumuus
-Kierorata vaikuttaa saadun säteilyn määrään erityisesti etäisyyden puolesta
+Valmiita funktoita on esim. sinikäyrää noudattava peruskuumuus **tehty**
+Kierorata vaikuttaa saadun säteilyn määrään erityisesti etäisyyden puolesta **tehty**
 
 *Ilmakehä*
 
-Ilmakehän kaasuista seurataan hapen, hiilidioksidin ja vesihöyryn määriä.
+Ilmakehän kaasuista seurataan hapen, hiilidioksidin ja vesihöyryn määriä. 
 Kaasut synnyttävät kasvihuoneilmiön. 
 Hapen suuri määrä saattaa aiheuttaa metsäpaloja, joissa vapautuu hiilidioksidia ja sitoutuu happea. Hiilidioksidin määrä vaikuttaa kasvien ominaisuuksiin, samoin hapen määrä eläinten ominaisuuksiin
-Kasvit saattavat aiheuttaa pilvien tiivistymistä, joka viilentää planeettaa.
-Oletuksena maapallon tämänhetkiset parametrit kaasuosapaineista.
+Kasvit saattavat aiheuttaa pilvien tiivistymistä, joka viilentää planeettaa. **tehty**
+Oletuksena maapallon tämänhetkiset parametrit kaasuosapaineista. **tehty**
 
 
 *Kasvit*
 
-Kasveilla on ominainen ihannelämpötila, jonka lisäksi ne heijastavat tähden valoa eri tavoin. Lisäksi niiden tehokkuus hapen tuotannossa vaihtelee sen mukaan, minkä verran ne tarvitsevat hiilidioksidia ja minkä verran ne kykenevät sitä sitomaan, eli kasvilla on erikseen hiilidioksidikynnys ja sen kulutus.
+Kasveilla on ominainen ihannelämpötila **tehty**, jonka lisäksi ne heijastavat tähden valoa eri tavoin **tehty**. Lisäksi niiden tehokkuus hapen tuotannossa vaihtelee sen mukaan, minkä verran ne tarvitsevat hiilidioksidia ja minkä verran ne kykenevät sitä sitomaan, eli kasvilla on erikseen hiilidioksidikynnys ja sen kulutus.
 
 *Eläimet*
 
