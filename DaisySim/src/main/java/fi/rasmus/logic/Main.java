@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package fi.rasmus.logic;
-
+ import fi.rasmus.gui.Config;
 /**
  *
  * @author Rasmus
@@ -17,11 +17,14 @@ public class Main {
         Boolean logging = true;
         int loggingEveryTimeUnit = 1;   // 1 Day set as frequency of logging
 
-        //Game world controller creations;
+        //Game world controller creations;'
+        Config config = new Config();
         StarControl sc = new StarControl();
         PlanetControl pc = new PlanetControl(0.75);
         Logger logger = new Logger();
 
+    
+        
         logger.setLogging(logging);
         logger.setTimeUnit(loggingEveryTimeUnit);
         Day day = new Day(sc, pc, logger);
@@ -37,7 +40,7 @@ public class Main {
         //LOgger output
         for (Double dbl : logger.getSols()) {
 
-            System.out.println("heLLO World!");
+            System.out.println(dbl);
         }
 
     }

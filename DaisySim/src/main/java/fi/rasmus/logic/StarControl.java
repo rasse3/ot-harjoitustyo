@@ -6,6 +6,7 @@
 package fi.rasmus.logic;
 import java.util.Random;
 
+
 /**
  *
  * @author Rasmus
@@ -15,6 +16,9 @@ public class StarControl {
     int seed = 1000;
     Random random = new Random(seed);
 
+    
+    double orbitalDistance;
+    //This defines the distance of the planet from the sun
     double baseluminosity;
     //This sets the power of a flare with 1.00 as the normal base luminosity
     double flareEfficient;
@@ -35,6 +39,7 @@ public class StarControl {
         flareEfficient = 1.01;
         flarePropability = 0.25;
         phase = 0.0;
+        orbitalDistance = 149000000;
 
     }
 
@@ -159,4 +164,15 @@ public class StarControl {
         return functionHandler.toString();
     }
 
+   public void setOrbitalDistance(double distance) {
+       this.orbitalDistance = distance;
+   }
+   
+   public double getOrbitalDistance(){
+       return orbitalDistance;
+       
+       
+   }
+    
+    
 }

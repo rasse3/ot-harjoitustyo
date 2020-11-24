@@ -26,7 +26,11 @@ public class PlanetControl {
 
         this.sea = seaPercentage;
         this.florae = new Flora(this.sea);
+        this.oxygen = 20;
+        this.carbonDioxide = 0.04;
+        this.methane = 0.0002;
     }
+    
 
     public double radiationAbsorption(double starIrradiance, double albedo) {
         return starIrradiance * albedo;
@@ -64,6 +68,24 @@ public class PlanetControl {
 
     public void addPlantSpecies(SpeciesP plant) {
         this.florae.addSpecies(plant);
+    }
+
+    public double getMethane(){
+        return this.methane;
+    }
+
+    public double getCarbonDioxide(){
+        return this.carbonDioxide;
+    }
+    
+    public double getOxygen(){
+        return this.oxygen;
+    }
+    
+    public void setGases(double cO2, double methnane, double oxygen){
+        this.carbonDioxide = cO2;
+        this.methane = methane;
+        this.oxygen = oxygen;
     }
 
 }
