@@ -37,11 +37,18 @@ public class Main {
 
         }
 
-        //LOgger output
+        //LOgger output for solar irradiance
         for (Double dbl : logger.getSols()) {
+
+            System.out.println(dbl);
+        }  
+        //LOgger output for temperature
+        for (Double dbl : logger.getPlans()) {
 
             System.out.println(dbl);
         }
 
+        
+        
     }
 }
