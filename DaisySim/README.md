@@ -32,6 +32,11 @@ Luo testikattavuusraportti komennolla "mvn jacoco:report"
 
 Suoritettava .jar:
 Luo suoritettava .jar-tiedosto komennolla "mvn package"
- 
+
+JacaDoc:
+Luo JavaDoc komennolla "mvn javadoc:javadoc"
+
+Checkstyle:
+Luo checkstyle-raportti komennolla "mvn jxr:jxr checkstyle:checkstyle"
 
 
