@@ -35,4 +35,4 @@ Paiva 		Tunteja 	Mitä tein
 30.11   3  Tein säteilylaskuja
 
 
-Yhteensä 32
+Yhteensä 38
