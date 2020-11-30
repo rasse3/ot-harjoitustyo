@@ -16,4 +16,4 @@ Dokumentaatio
 
 [Arkkitehtuuri](https://github.com/rasse3/ot-harjoitustyo/blob/master/DaisySim/Dokumentaatio/arkkitehtuuri.md)
 
-[Release] https://github.com/rasse3/ot-harjoitustyo/releases/tag/viikko5
+[Release]https://github.com/rasse3/ot-harjoitustyo/releases/tag/viikko5
