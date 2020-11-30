@@ -30,4 +30,9 @@ Paiva 		Tunteja 	Mitä tein
 
 24.11   5  Tein kasvien dynamiikkaa
 
+29.11   3  Tein graafista ilmettä
+
+30.11   3  Tein säteilylaskuja
+
+
 Yhteensä 32
