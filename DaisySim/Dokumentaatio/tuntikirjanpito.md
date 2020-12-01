@@ -33,6 +33,7 @@ Paiva 		Tunteja 	Mitä tein
 29.11   3  Tein graafista ilmettä
 
 30.11   3  Tein säteilylaskuja
+1.12    3  Tein ensimmäisen reaaliaikaisen graafin
 
 
 Yhteensä 38
