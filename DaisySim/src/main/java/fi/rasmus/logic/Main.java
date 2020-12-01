@@ -4,14 +4,20 @@
  * and open the template in the editor.
  */
 package fi.rasmus.logic;
+
  import fi.rasmus.gui.Config;
+ import fi.rasmus.gui.SolarPowerChart;
+import org.knowm.xchart.QuickChart;
+import org.knowm.xchart.SwingWrapper;
+import org.knowm.xchart.XYChart;
+
 /**
  *
  * @author Rasmus
  */
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         //These will be moved to a config file;
         Boolean logging = true;
@@ -22,13 +28,19 @@ public class Main {
         StarControl sc = new StarControl();
         PlanetControl pc = new PlanetControl(0.75);
         Logger logger = new Logger();
-
-    
+        Day day = new Day(sc, pc, logger);
+     
+        SolarPowerChart solPower = new SolarPowerChart(logger, pc, sc, day);
+        
+        
+        
+        
         
         logger.setLogging(logging);
         logger.setTimeUnit(loggingEveryTimeUnit);
-        Day day = new Day(sc, pc, logger);
 
+        
+       
         System.out.println(sc.returnFunctionHandlerStats());
 
         //Test copmutation of 100 days;
@@ -47,8 +59,23 @@ public class Main {
 
             System.out.println(dbl);
         }
+        
+        
+        
+        solPower.go();
+        day.executeADay();
+        
 
         
-        
+
+            double phase = 0;
+            double[][] data = new double[1][1];
+            
+          
+   
+            
+            
+            
     }
+    
 }

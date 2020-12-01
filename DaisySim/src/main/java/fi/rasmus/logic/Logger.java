@@ -5,6 +5,7 @@
  */
 package fi.rasmus.logic;
 import java.util.ArrayList;
+
 /**
  *
  * @author Rasmus
@@ -54,4 +55,14 @@ public class Logger {
         this.timeUnit = unit;
     }
 
+    public double getNewestPlanetTemperature(){
+        return this.planetaryTemperatures.get(this.planetaryTemperatures.size()-1);
+    }
+    
+    public double getNewestSolarLuminosity(){
+        return this.solarLuminosities.get(this.solarLuminosities.size()-1);
+        
+    }
+    
+    
 }
