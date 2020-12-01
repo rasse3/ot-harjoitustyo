@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package fi.rasmus.logic;
-import java.util.Random;
 
+import java.util.Random;
 
 /**
  *
@@ -16,7 +16,6 @@ public class StarControl {
     int seed = 1000;
     Random random = new Random(seed);
 
-    
     double orbitalDistance;
     //This defines the distance of the planet from the sun
     double baseluminosity;
@@ -164,15 +163,13 @@ public class StarControl {
         return functionHandler.toString();
     }
 
-   public void setOrbitalDistance(double distance) {
-       this.orbitalDistance = distance;
-   }
-   
-   public double getOrbitalDistance(){
-       return orbitalDistance;
-       
-       
-   }
-    
-    
+    public void setOrbitalDistance(double distance) {
+        this.orbitalDistance = distance;
+    }
+
+    public double getOrbitalDistance() {
+        return orbitalDistance;
+
+    }
+
 }

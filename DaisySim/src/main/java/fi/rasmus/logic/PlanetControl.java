@@ -30,7 +30,6 @@ public class PlanetControl {
         this.carbonDioxide = 0.04;
         this.methane = 0.0002;
     }
-    
 
     public double radiationAbsorption(double starIrradiance, double albedo) {
         return starIrradiance * albedo;
@@ -70,19 +69,19 @@ public class PlanetControl {
         this.florae.addSpecies(plant);
     }
 
-    public double getMethane(){
+    public double getMethane() {
         return this.methane;
     }
 
-    public double getCarbonDioxide(){
+    public double getCarbonDioxide() {
         return this.carbonDioxide;
     }
-    
-    public double getOxygen(){
+
+    public double getOxygen() {
         return this.oxygen;
     }
-    
-    public void setGases(double cO2, double methnane, double oxygen){
+
+    public void setGases(double cO2, double methnane, double oxygen) {
         this.carbonDioxide = cO2;
         this.methane = methane;
         this.oxygen = oxygen;

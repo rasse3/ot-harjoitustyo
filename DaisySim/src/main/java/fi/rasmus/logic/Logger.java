@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package fi.rasmus.logic;
+
 import java.util.ArrayList;
 
 /**
@@ -55,14 +56,14 @@ public class Logger {
         this.timeUnit = unit;
     }
 
-    public double getNewestPlanetTemperature(){
-        return this.planetaryTemperatures.get(this.planetaryTemperatures.size()-1);
+    public double getNewestPlanetTemperature() {
+        return this.planetaryTemperatures.get(this.planetaryTemperatures.size() - 1);
     }
-    
-    public double getNewestSolarLuminosity(){
-        return this.solarLuminosities.get(this.solarLuminosities.size()-1);
-        
+
+    public double getNewestSolarLuminosity() {
+        return this.solarLuminosities.get(this.solarLuminosities.size() - 1);
+
     }
-    
-    
+
 }
+

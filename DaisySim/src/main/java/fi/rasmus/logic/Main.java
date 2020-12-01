@@ -5,8 +5,8 @@
  */
 package fi.rasmus.logic;
 
- import fi.rasmus.gui.Config;
- import fi.rasmus.gui.SolarPowerChart;
+import fi.rasmus.gui.Config;
+import fi.rasmus.gui.SolarPowerChart;
 import org.knowm.xchart.QuickChart;
 import org.knowm.xchart.SwingWrapper;
 import org.knowm.xchart.XYChart;
@@ -29,18 +29,12 @@ public class Main {
         PlanetControl pc = new PlanetControl(0.75);
         Logger logger = new Logger();
         Day day = new Day(sc, pc, logger);
-     
+
         SolarPowerChart solPower = new SolarPowerChart(logger, pc, sc, day);
-        
-        
-        
-        
-        
+
         logger.setLogging(logging);
         logger.setTimeUnit(loggingEveryTimeUnit);
 
-        
-       
         System.out.println(sc.returnFunctionHandlerStats());
 
         //Test copmutation of 100 days;
@@ -53,29 +47,19 @@ public class Main {
         for (Double dbl : logger.getSols()) {
 
             System.out.println(dbl);
-        }  
+        }
         //LOgger output for temperature
         for (Double dbl : logger.getPlans()) {
 
             System.out.println(dbl);
         }
-        
-        
-        
+
         solPower.go();
         day.executeADay();
-        
 
-        
+        double phase = 0;
+        double[][] data = new double[1][1];
 
-            double phase = 0;
-            double[][] data = new double[1][1];
-            
-          
-   
-            
-            
-            
     }
-    
+
 }
