@@ -35,5 +35,9 @@ Paiva 		Tunteja 	Mitä tein
 30.11   3  Tein säteilylaskuja
 1.12    3  Tein ensimmäisen reaaliaikaisen graafin
 
+2.12    3 Tein laskusäännöt kasvien lisääntymiselle
+
+4.12    2 Tein javadocia
+
 
 Yhteensä 38
