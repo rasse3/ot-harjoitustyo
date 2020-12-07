@@ -21,9 +21,10 @@ import static org.junit.jupiter.api.Assertions.*;
 public class DayTest {
     
     
-    StarControl SC;
-    PlanetControl PC;
-    Logger Log;
+    double seaPercentage = 0.25;
+    StarControl SC = new StarControl();
+    PlanetControl PC = new PlanetControl(seaPercentage);
+    Logger Log = new Logger();
     
     Day day;
     double sea_percentage;

@@ -1,8 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+
+
 package fi.rasmus.gui;
 
 import java.util.List;
@@ -108,8 +106,13 @@ public class SolarPowerChart {
         List<Double> data = new CopyOnWriteArrayList<Double>();
         for (int i = 0; i < numPoints; i++) {
 
-            data.add(logger.getNewestPlanetTemperature());
-
+            if (pc.getPlantList().size() == 0){
+            ArrayList<Double> numbers =  new ArrayList<>();
+            numbers.add(0.0);
+            return numbers;
+        } else {
+            data.add(logger.getNewestCoverage(pc.getPlantList().get(0)));
+                }
         }
         return data;
     }

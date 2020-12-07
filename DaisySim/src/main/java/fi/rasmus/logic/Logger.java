@@ -1,16 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+
+
 package fi.rasmus.logic;
 
+import java.util.HashMap;
 import java.util.ArrayList;
 
+
+
+
 /**
- *
+ * Logger keeps track of events on the planet and the star. It contains info
+ * about species of plants and animals, temperature of planet, albedo of planet
+ * and irradiance of the star.
  * @author Rasmus
  */
+
 public class Logger {
 
     boolean logging = true;
@@ -18,12 +23,26 @@ public class Logger {
     int timeRan = 0;  // Helper for the computation of time-step
     ArrayList<Double> solarLuminosities;
     ArrayList<Double> planetaryTemperatures;
+    HashMap<SpeciesP, Double> coverages;
 
+    /**
+     * Constructor for the logger-object.
+     */
+    
     public Logger() {
         solarLuminosities = new ArrayList<>();
         planetaryTemperatures = new ArrayList<>();
+        coverages = new HashMap<>();
+
+        
 
     }
+    
+    /**
+     * Logging function for solar irradiance and planetary temperature.
+     * @param solLum Solar luminosity to be tracked
+     * @param planTem Planetary temperature to be tracked
+     */
 
     public void log(double solLum, double planTem) {
 
@@ -35,9 +54,22 @@ public class Logger {
 
                 solarLuminosities.add(solLum);
                 planetaryTemperatures.add(planTem);
+                
 
             }
         }
+    }
+    
+    public void logPlants(SpeciesP plant, double coverage) {
+        
+
+        
+        if (coverages.containsKey(plant)){
+        
+        this.coverages.replace(plant, coverage);
+    } else {
+    this.coverages.put(plant, coverage );
+    }
     }
 
     public ArrayList<Double> getSols() {
@@ -55,6 +87,8 @@ public class Logger {
     public void setTimeUnit(int unit) {
         this.timeUnit = unit;
     }
+    
+    
 
     public double getNewestPlanetTemperature() {
         return this.planetaryTemperatures.get(this.planetaryTemperatures.size() - 1);
@@ -64,6 +98,16 @@ public class Logger {
         return this.solarLuminosities.get(this.solarLuminosities.size() - 1);
 
     }
+    
+    public double getNewestCoverage(SpeciesP p){
+        
+        return p.getCoverage();
+        
+    }
+    
+   
+    
+         
 
 }
 

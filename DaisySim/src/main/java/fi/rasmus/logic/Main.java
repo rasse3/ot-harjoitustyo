@@ -1,22 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fi.rasmus.logic;
 
 import fi.rasmus.gui.Config;
 import fi.rasmus.gui.SolarPowerChart;
-import org.knowm.xchart.QuickChart;
-import org.knowm.xchart.SwingWrapper;
-import org.knowm.xchart.XYChart;
 
 /**
+ * This is the main class of the program.
  *
  * @author Rasmus
  */
 public class Main {
 
+    /**
+     * This is the main-method of the program.
+     *
+     * @param args Arguments to be passed at run-time
+     * @throws Exception Thrown exception
+     */
     public static void main(String[] args) throws Exception {
 
         //These will be moved to a config file;
@@ -26,7 +25,7 @@ public class Main {
         //Game world controller creations;'
         Config config = new Config();
         StarControl sc = new StarControl();
-        PlanetControl pc = new PlanetControl(0.75);
+        PlanetControl pc = new PlanetControl(0.5);
         Logger logger = new Logger();
         Day day = new Day(sc, pc, logger);
 
@@ -54,12 +53,45 @@ public class Main {
             System.out.println(dbl);
         }
 
+               SpeciesP p1 = new SpeciesP("Plant1", 0.3 , 293, 1, 1 );
+        SpeciesP p2 = new SpeciesP("Plant2", 0.6 , 293, 1, 1 );
+        
+        Flora flora = new Flora(0);
+        
+        
+        flora.addSpecies(p1);
+        flora.addSpecies(p2);
+        
+        p1.setCoverage(0.5);
+        p2.setCoverage(0.5);
+        
+        logger.logPlants(p1, 0.0);
+        
+        
+        
+        logger.logPlants(p2, 0.0);
+        
+        
         solPower.go();
         day.executeADay();
 
         double phase = 0;
         double[][] data = new double[1][1];
-
+        
+  
+ 
+        
+        System.out.println(flora.countAlbedo());
+        System.out.println(flora.getTotalCoverage());
+       
+        
+        
+        pc.calculateAlbedo();
+        System.out.println(pc.getAlbedo());
+        
+        
+        
     }
+    
 
 }

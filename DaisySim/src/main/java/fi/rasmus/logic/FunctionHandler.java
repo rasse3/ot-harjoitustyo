@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fi.rasmus.logic;
+
 import java.util.ArrayList;
-/**
- *
- * @author Rasmus
- */
+
+// Handles the function used to vary the star's luminosity
 public class FunctionHandler {
 
     String function;
@@ -17,6 +11,9 @@ public class FunctionHandler {
     double amplitude;
     double frequencyRadPerDay;
 
+    /**
+     * Constructor for the function handler object with default values (Sine is default function).
+     */
     public FunctionHandler() {
         this.function = "sine";
         this.amplitude = 0.01;
@@ -24,6 +21,14 @@ public class FunctionHandler {
 
     }
 
+    /**
+     * Constructor for the function handler specifying the values.
+     *
+     * @param type          Name of the function
+     * @param amplitude     Amplitude if using wave-functions
+     * @param frequency     Frequency if using wave-functions
+     * 
+     */
     public FunctionHandler(String type, double amplitude, double frequency) {
         this.function = type;
 
@@ -31,6 +36,12 @@ public class FunctionHandler {
         this.frequencyRadPerDay = frequency;
     }
 
+    /**
+     * Gets the function's value for a given day.
+     *
+     * @param day The time for which the value is wanted for
+     * @return Returns the function value corresponding to the day
+     */
     public double getValue(double day) {
 
         if (function.equals("sine")) {
@@ -41,18 +52,32 @@ public class FunctionHandler {
 
     }
 
+    /**
+     * '
+     * Lists the functions available for the star.
+     *
+     * @return List of available functions
+     */
     public ArrayList<String> getAllowedFunctions() {
         return allowedFunctions;
     }
 
+    /**
+     * Adds new functions to the list of allowed functions.
+     *
+     * @param entry The function to be added to the list of functions.
+     */
     public void addToAllowedFunctions(String entry) {
         allowedFunctions.add(entry);
     }
 
-    public ArrayList<String> returnAllowedFunctions() {
-        return allowedFunctions;
-    }
-
+    /**
+     * Sets the parameters of a function.
+     *
+     * @param type Name of the function used.
+     * @param amplitude Amplitude if using a wave-function
+     * @param frequency Frequency if using a wave-function
+     */
     public void setParameters(String type, double amplitude, double frequency) {
         this.function = type;
 
@@ -60,6 +85,12 @@ public class FunctionHandler {
         this.frequencyRadPerDay = frequency;
     }
 
+    /**
+     * Returns the parameters of a wave function used to control the star.
+     *
+     * @return The amplitude and the frequency of the star's luminosity as a
+     * string
+     */
     public String toString() {
         return this.function + ": amplitude: " + amplitude + ", frequency: " + frequencyRadPerDay;
     }

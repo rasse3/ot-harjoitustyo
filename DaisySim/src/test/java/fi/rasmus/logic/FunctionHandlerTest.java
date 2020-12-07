@@ -68,9 +68,9 @@ public class FunctionHandlerTest {
         handler.addToAllowedFunctions("hsine");
         handler.addToAllowedFunctions("hcosine");
         
-        assertEquals(5, handler.returnAllowedFunctions().size());
-        assert(handler.returnAllowedFunctions().contains("sine"));
-        assert(!handler.returnAllowedFunctions().contains("htan"));
+        assertEquals(5, handler.getAllowedFunctions().size());
+        assert(handler.getAllowedFunctions().contains("sine"));
+        assert(!handler.getAllowedFunctions().contains("htan"));
         
     }
       
