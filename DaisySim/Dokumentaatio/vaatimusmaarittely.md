@@ -20,8 +20,8 @@ Perusversiossa on mahdollista alustaa simulaatio seuraavin parametrein:
 
 *Tähti ja planeetan rata*
 
-Peruskuumuus (tässä tulee mahdollisuus valita listasta eri spektriluokan tähtiä tai asettaa ihan oma arvo). 
-Flaren (auringonpurkaus) todennäköisyys (jälleen mahdollista valita listasta olemassaolevia arvoja tai asettaa oma prosentti).
+Peruskuumuus (tässä tulee mahdollisuus valita listasta eri spektriluokan tähtiä tai asettaa ihan oma arvo). **tehty**
+Flaren (auringonpurkaus) todennäköisyys (jälleen mahdollista valita listasta olemassaolevia arvoja tai asettaa oma prosentti). **tehty**
 Flaren kuumuus prosentteina tähden normaalista tehosta. **tehty**
 Kaikkia näitä arvioita voi säätää aloitusruudulla tarjotuilla (ajan) funktioilla tai sitten käyttäjä voi määrittää oman funktion.
 Valmiita funktoita on esim. sinikäyrää noudattava peruskuumuus **tehty osin**
@@ -30,7 +30,7 @@ Kierorata vaikuttaa saadun säteilyn määrään erityisesti etäisyyden puolest
 *Ilmakehä*
 
 Ilmakehän kaasuista seurataan hapen, hiilidioksidin ja vesihöyryn määriä. 
-Kaasut synnyttävät kasvihuoneilmiön. 
+Kaasut synnyttävät kasvihuoneilmiön. **tehty**
 Hapen suuri määrä saattaa aiheuttaa metsäpaloja, joissa vapautuu hiilidioksidia ja sitoutuu happea. Hiilidioksidin määrä vaikuttaa kasvien ominaisuuksiin, samoin hapen määrä eläinten ominaisuuksiin
 Kasvit saattavat aiheuttaa pilvien tiivistymistä, joka viilentää planeettaa. **osin tehty**
 Oletuksena maapallon tämänhetkiset parametrit kaasuosapaineista. **tehty**
@@ -52,7 +52,7 @@ Pienillä eläimillä päinvastoin.
 *Simulaation alustus*
 
 Pelaaja saa simulaatiota alustaessaan valita ainakin seuraavat asiat:
-Parametrit tähdelle, eliöille ja kiertoradalle sekä ilmaston alkuehdot
+Parametrit tähdelle, eliöille ja kiertoradalle sekä ilmaston alkuehdot 
 Pelaaja saa valita, muuttuvatko eliöt hieman ajan myötä (evoluutio)
 Jos evoluutio valitaan, voidaan myös määrätä saako uusia lajeja syntyä
 Pelaajalla on myös vapaus valita valmiista simulaatioasetuksista ja myös mahdollisuus lisätä tietokantaan aloitusparametrejä. Myös jo aloitettuja simulaatioita voi ladata ja jatkaa
