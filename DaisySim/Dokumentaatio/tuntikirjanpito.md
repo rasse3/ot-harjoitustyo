@@ -39,5 +39,9 @@ Paiva 		Tunteja 	Mitä tein
 
 4.12    2 Tein javadocia
 
+5.12    3 Selvensin koodia ja tein toisen graafin
+7.12    3 Tein kasvien kytkennän lämpötilaan
+
+
 
 Yhteensä 38
