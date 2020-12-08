@@ -44,4 +44,4 @@ Paiva 		Tunteja 	Mitä tein
 
 
 
-Yhteensä 38
+Yhteensä 44
