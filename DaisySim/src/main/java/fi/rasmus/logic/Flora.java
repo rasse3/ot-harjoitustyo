@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 /**
  * This class contains the properties of plants on the planet.
+ *
  * @author Rasmus
  */
 public class Flora {
@@ -15,12 +16,9 @@ public class Flora {
     double planetaryTemperature;
     double planetaryAlbedo;
     double freeArea;
-    
-    
+
     // Constants
-    
     double deathRate = 0.2;
-    
 
     /**
      * This method creates a flora-object that will control the plantlife on the
@@ -34,36 +32,28 @@ public class Flora {
         plantSpecies = new ArrayList<>();
         growthFactors = new HashMap<>();
         this.seaPercentage = seaPercentage;
-        this.freeArea = 1  - seaPercentage;
-        
+        this.freeArea = 1 - seaPercentage;
 
     }
-    
-    
-    
-    
+
     /**
      * Sets planetary albedo value.
+     *
      * @param albedo Planetary albedo
      */
-
-    public void setAlbedo(double albedo){
+    public void setAlbedo(double albedo) {
         planetaryAlbedo = albedo;
     }
-    
+
     /**
      * Sets planetary temperature.
+     *
      * @param temperature Planetary temperature
      */
-    
-    public void setTemperature(double temperature){
+    public void setTemperature(double temperature) {
         planetaryTemperature = temperature;
     }
-    
-    
-    
-    
-    
+
     /**
      * Adds species to the list of plant species.
      *
@@ -99,7 +89,7 @@ public class Flora {
         for (SpeciesP species : plantSpecies) {
             plantAlbedo = plantAlbedo + species.albedo * species.getCoverage();
         }
-        
+
         double total = getTotalCoverage();
 
         return plantAlbedo;
@@ -124,83 +114,81 @@ public class Flora {
 
         return 0;
     }
-    
-    
+
     /**
-     * Calculates growth factors to a hashmap to be used by the method that calculates new plant coverage values.
+     * Calculates growth factors to a hashmap to be used by the method that
+     * calculates new plant coverage values.
      */
-    
-    public void calculateGrowthFactors(){
-       
-    for (SpeciesP plant : plantSpecies){
+    public void calculateGrowthFactors() {
+
+        for (SpeciesP plant : plantSpecies) {
             plant.setPlanetaryAlbedo(planetaryAlbedo);
             plant.setPlanetaryTemperature(planetaryTemperature);
             double factor = plant.getGrowthFactor();
             growthFactors.replace(plant, factor);
-        
-        
-        
+
+        }
     }
-    }
+
+    /**
+     * Calculates new coverages.
+     */
     
-    
-    public void changeCoverages(){
-        
+    public void changeCoverages() {
+
         double totalChange = 0;
-        
-        for (SpeciesP plant : plantSpecies){
+
+        for (SpeciesP plant : plantSpecies) {
             totalChange = totalChange + changeInCoverage(plant);
         }
-        
+
         double changeFactor = freeArea;
-        if (totalChange > freeArea){
+        if (totalChange > freeArea) {
             changeFactor = freeArea - totalChange;
         }
-        
-        
-        for (SpeciesP plant : plantSpecies){
-            plant.setCoverage(plant.getCoverage() + changeFactor*changeInCoverage(plant));
+
+        for (SpeciesP plant : plantSpecies) {
+            plant.setCoverage(plant.getCoverage() + changeFactor * changeInCoverage(plant));
         }
-        
-        
-          freeArea=  freeArea - totalChange;
-        
+
+        freeArea = freeArea - totalChange;
+
     }
-    
-    
-    
-   
+
     /**
      * Calculates changes in the coverage of all plants.
+     *
      * @param p Plant to manipulate
      * @return Area change
      */
-    
-    
-    
-    public double changeInCoverage(SpeciesP p){
-        
+    public double changeInCoverage(SpeciesP p) {
+
         double coverage = p.getCoverage();
-        
+
         double growthFactor = growthFactors.get(p);
-        
-        double change = coverage*(freeArea*growthFactor -deathRate) + 0.01;   // The constant 0.01 in the end sees to it that the plants don't die out
-        
-      
-        
+
+        double change = coverage * (freeArea * growthFactor - deathRate) + 0.01;   // The constant 0.01 in the end sees to it that the plants don't die out
+
         return change;
     }
+
+    /**
+     * Returns list of existing plant species.
+     * @return List of plant-species
+     */
     
-    
-    
-    public ArrayList<SpeciesP> getPlantList(){
+    public ArrayList<SpeciesP> getPlantList() {
         return this.plantSpecies;
     }
- 
+    
+    /**
+     * Get coverage of planet with the species as key.
+     * @param plant Key plant-object
+     * @return Coverage of the plant
+     */
 
-    public double getCoverage(SpeciesP plant){
+    public double getCoverage(SpeciesP plant) {
         return plant.getCoverage();
     }
-    
-}
 
+}

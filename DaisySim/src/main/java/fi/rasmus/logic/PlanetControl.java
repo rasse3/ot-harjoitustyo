@@ -1,6 +1,7 @@
 package fi.rasmus.logic;
 
- import java.util.ArrayList;
+import java.util.ArrayList;
+
 /**
  * This class handles data about the planetary life, atmospheric gases, albedo
  * and temperature.
@@ -19,21 +20,18 @@ public class PlanetControl {
     double previousTemperature;
     double landArea;
     double emissivityFactored;   // This is the emissivity with contribution of greenhouse effect
-                                // of atmospheric gases.
+    // of atmospheric gases.
     Flora florae;
-    
-            
-    
+
     // CONSTANTS:
-    
     double basicEmissivity = 0.793;
-    double ksb = 5.67*(Math.pow(10,-8)); // Stefan-Boltzmann constant
-    double area = 510100*(10^6); // Surface area of the earth in square meters
+    double ksb = 5.67 * (Math.pow(10, -8)); // Stefan-Boltzmann constant
+    double area = 510100 * (10 ^ 6); // Surface area of the earth in square meters
     double wattsPerLuminosityUnit = 1360; // The absolute power per luminosity unit
     double cloudAlbedo = 0.5;
     double seaAlbedo = 0.06;
     double unCoveredAlbedo = 0.5;
-    
+
     /**
      * Constructor that specifies how much of the planet's surface is available
      * for plants. The gases are set as relative fractions of earth values.
@@ -44,28 +42,26 @@ public class PlanetControl {
     public PlanetControl(double seaPercentage) {
 
         this.sea = seaPercentage;
-        this.landArea = (1-sea)*area;
+        this.landArea = (1 - sea) * area;
         this.florae = new Flora(this.sea);
         this.oxygen = 1;
         this.carbonDioxide = 1;
         this.methane = 1;
         this.cloudiness = 0;
     }
-    
-    
+
     /**
      * Returns the initial temperature of the planet to be used by the logger.
+     * @param luminosity The luminosity of the sun 
      * @return The initial temperature of the planet.
      */
-    
-    public double setInitial(double luminosity){
+    public double setInitial(double luminosity) {
         calculateAlbedo();
         double absoluteLuminosity = 1360 * luminosity;
-        double result = absoluteLuminosity*(1-albedo);
-        result = result/(4*ksb);
+        double result = absoluteLuminosity * (1 - albedo);
+        result = result / (4 * ksb);
         return Math.pow(result, 0.25);
     }
-    
 
     /**
      * Calculates the absorbed radiation as function of irradiance and albedo.
@@ -75,28 +71,22 @@ public class PlanetControl {
      * @return The amount of energy absorbed on the planet
      */
     public double radiationAbsorption(double starIrradiance, double albedo) {
-        return starIrradiance * (1 -albedo);
+        return starIrradiance * (1 - albedo);
     }
 
-    
     /**
      * Calculates temperature from total absorbed energy.
+     *
      * @param energyBalance Amount of energy incoming
      * @return Temperature from energy
      */
-    
-    public double radiationToTemperature(double energyBalance){
-        
-        double energy = energyBalance/(ksb);
-        
-        
-        
+    public double radiationToTemperature(double energyBalance) {
+
+        double energy = energyBalance / (ksb);
+
         return Math.pow(energy, 0.25);
     }
-    
-    
-    
-    
+
     /**
      * The temperature of the planet as function of absorbed radiation and
      * emitted radiation.
@@ -112,20 +102,17 @@ public class PlanetControl {
         double radiationEmitted = radiationEmission(previousTemperature);
         double energyBalance = radiationAbsorbed - radiationEmitted;
         double temperature = radiationToTemperature(energyBalance);
-                
+
         return temperature;
     }
 
-    
     /**
      * Updates the emissivityFactored-variable;
      */
-    
-    public void calculateEmissivityFactor(){
-        emissivityFactored = basicEmissivity + carbonDioxide*0.02 + methane*0.004;
+    public void calculateEmissivityFactor() {
+        emissivityFactored = basicEmissivity + carbonDioxide * 0.02 + methane * 0.004;
     }
-    
-    
+
     /**
      * Calculates emission of radiation increased by temperature and decreased
      * by greenhouse gases.
@@ -134,9 +121,9 @@ public class PlanetControl {
      * @return Amount of radiation emitted by the planet
      */
     public double radiationEmission(double oldTemperature) {
-        
-        double emission = ksb*emissivityFactored*landArea*(oldTemperature)*(oldTemperature)*(oldTemperature)*(oldTemperature);
-        
+
+        double emission = ksb * emissivityFactored * landArea * (oldTemperature) * (oldTemperature) * (oldTemperature) * (oldTemperature);
+
         return emission;
     }
 
@@ -145,7 +132,7 @@ public class PlanetControl {
      */
     public void calculateAlbedo() {
         albedo = sea * seaAlbedo;
-        albedo = (1-sea)*(florae.getTotalCoverage()*plantAlbedo() + (1- florae.getTotalCoverage())*unCoveredAlbedo);
+        albedo = (1 - sea) * (florae.getTotalCoverage() * plantAlbedo() + (1 - florae.getTotalCoverage()) * unCoveredAlbedo);
         albedo = albedo - cloudiness * albedo + cloudiness * cloudAlbedo;
 
     }
@@ -158,10 +145,9 @@ public class PlanetControl {
     public double plantAlbedo() {
 
         double plantAlbedo = florae.countAlbedo();
-       
 
         return plantAlbedo;
-        
+
     }
 
     /**
@@ -223,20 +209,23 @@ public class PlanetControl {
         this.oxygen = oxygen;
     }
 
-
-    public ArrayList<SpeciesP> getPlantList(){
+    public ArrayList<SpeciesP> getPlantList() {
         return florae.getPlantList();
     }
+
     
+    /**
+     * Returns plant coverage amounts as searched by a plant species-object.
+     * @param plant Plant-object to use as key for search
+     * @return The coverage of searched plant
+     */
     
-    public double plantCoverage(SpeciesP plant){
-        if (florae.getPlantList().contains(plant)){
+    public double plantCoverage(SpeciesP plant) {
+        if (florae.getPlantList().contains(plant)) {
             return plant.getCoverage();
-         } else {
+        } else {
             return 0.0;
         }
     }
-    
-    
-}
 
+}

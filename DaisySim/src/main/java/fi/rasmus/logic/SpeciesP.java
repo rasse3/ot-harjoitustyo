@@ -17,9 +17,8 @@ public class SpeciesP {
     double localTemperature;
     double planetaryAlbedo;
     double planetaryTemperature;
-    
+
     // Constants
-    
     double fha = 20;    // This is the factor which determines difference in local and planetary temperatures
 
     /**
@@ -47,59 +46,51 @@ public class SpeciesP {
         this.planetaryTemperature = 0;
     }
 
-    
     /**
      * Calculates local temperature according to planetary values.
      */
-    
-    public void calculateLocalTemperature(){
-        localTemperature =  fha * (planetaryAlbedo - albedo) + planetaryTemperature;
+    public void calculateLocalTemperature() {
+        localTemperature = fha * (planetaryAlbedo - albedo) + planetaryTemperature;
     }
-    
-    
+
     /**
      * Sets planetary albedo.
-     * @param albedo  The albedo of the whole planet
+     *
+     * @param albedo The albedo of the whole planet
      */
-    
-    public void setPlanetaryAlbedo(double albedo){
+    public void setPlanetaryAlbedo(double albedo) {
         this.planetaryAlbedo = albedo;
     }
-    
-    
+
     /**
      * Sets planetary temperature.
+     *
      * @param temperature The temperature of the planet.
      */
-    
-    public void setPlanetaryTemperature(double temperature){
+    public void setPlanetaryTemperature(double temperature) {
         this.planetaryTemperature = temperature;
     }
-    
 
     /**
      * Returns growth factor of plant for the planetcontrol-object.
+     *
      * @return The growth factor of the plant species
      */
-    
-    public double getGrowthFactor(){
+    public double getGrowthFactor() {
         return this.growthFactor;
     }
-    
-    
+
     /**
      * Calculates the rate of growth in given temperature.
-     * @param temperature The current temperature
+     *
+     *
      */
+    public void calculateGrowthFactor() {
 
-    
-    public void calculateGrowthFactor(){
-        
-        growthFactor = 1 - (0.003265)*Math.pow((idealTemperature - localTemperature), 2);     
-        
+        growthFactor = 1 - (0.003265) * Math.pow((idealTemperature - localTemperature), 2);
+
     }
-    
-    
+
     /**
      * Set the name of the species.
      *

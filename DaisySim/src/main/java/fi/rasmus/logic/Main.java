@@ -53,45 +53,33 @@ public class Main {
             System.out.println(dbl);
         }
 
-               SpeciesP p1 = new SpeciesP("Plant1", 0.3 , 293, 1, 1 );
-        SpeciesP p2 = new SpeciesP("Plant2", 0.6 , 293, 1, 1 );
-        
+        SpeciesP p1 = new SpeciesP("Plant1", 0.3, 293, 1, 1);
+        SpeciesP p2 = new SpeciesP("Plant2", 0.6, 293, 1, 1);
+
         Flora flora = new Flora(0);
-        
-        
+
         flora.addSpecies(p1);
         flora.addSpecies(p2);
-        
+
         p1.setCoverage(0.5);
         p2.setCoverage(0.5);
-        
+
         logger.logPlants(p1, 0.0);
-        
-        
-        
+
         logger.logPlants(p2, 0.0);
-        
-        
+
         solPower.go();
         day.executeADay();
 
         double phase = 0;
         double[][] data = new double[1][1];
-        
-  
- 
-        
+
         System.out.println(flora.countAlbedo());
         System.out.println(flora.getTotalCoverage());
-       
-        
-        
+
         pc.calculateAlbedo();
         System.out.println(pc.getAlbedo());
-        
-        
-        
+
     }
-    
 
 }

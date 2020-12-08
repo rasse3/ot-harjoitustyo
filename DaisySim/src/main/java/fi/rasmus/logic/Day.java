@@ -1,5 +1,7 @@
 package fi.rasmus.logic;
+
 import java.util.ArrayList;
+
 /**
  * Day is the class that controls other classes of the simulation.
  *
@@ -12,7 +14,8 @@ public class Day {
     Logger log;
 
     /**
-     * This is a constructor for a day-object. It sets the first values of planetary temperature and solar luminosity.
+     * This is a constructor for a day-object. It sets the first values of
+     * planetary temperature and solar luminosity.
      *
      * @param sc A StarControl-object that controls the star
      * @param pc A PlanetControl-object that controls the planet and life on it
@@ -23,7 +26,7 @@ public class Day {
         this.pc = pc;
         this.log = logger;
         log.log(sc.setInitial(), pc.setInitial(sc.setInitial()));
-       
+
     }
 
     /**
@@ -32,23 +35,20 @@ public class Day {
     public void executeADay() {
         sc.incrementPhase();
         double previousTemp = log.getNewestPlanetTemperature();
-        
+
         double radiance = sc.radiationPowerThisDay();
         double emission = pc.radiationEmission(previousTemp);
         double temperature = pc.temperatureThisDay(radiance, emission);
-        
-        
+
         log.log(radiance, temperature);
-        
+
         ArrayList<SpeciesP> plants = pc.getPlantList();
-        
-        
-        for (SpeciesP plant  : plants){
+
+        for (SpeciesP plant : plants) {
             double coverage = plant.getCoverage();
             log.logPlants(plant, coverage);
         }
-        
-        
+
     }
 
 }

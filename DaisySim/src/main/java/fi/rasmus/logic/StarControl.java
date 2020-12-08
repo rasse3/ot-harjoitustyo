@@ -44,15 +44,15 @@ public class StarControl {
         orbitalDistance = 149000000;
 
     }
-    
+
     /**
-     *  Sets the initial value of solar luminosity to be used by the logger.
+     * Sets the initial value of solar luminosity to be used by the logger.
+     *
      * @return The initial luminosity;
      */
-    
-        public double  setInitial(){
-            return baseluminosity;
-        }
+    public double setInitial() {
+        return baseluminosity;
+    }
 
     /**
      * This constructor builds a star with user-given values.
@@ -185,12 +185,16 @@ public class StarControl {
         }
         return number;
     }
+    
+    /**
+     * Adds allowed function to list of functions.
+     * @param function Function to add to list
+     */
 
-   public void addAllowedFunctionToHandler(String function){
-       functionHandler.addToAllowedFunctions(function);
-   }
-    
-    
+    public void addAllowedFunctionToHandler(String function) {
+        functionHandler.addToAllowedFunctions(function);
+    }
+
     /**
      * Returns allowed functions of the function handler.
      *
@@ -229,8 +233,7 @@ public class StarControl {
         double flareNumber = getAmountOfFlaresPerDay(flarePropability);
         double flarePower = baseluminosity * flareNumber * (1 - flareEfficient);
         double totalPower = flarePower + (baseluminosity * helperdbl);
-        return totalPower*flux
-                ;
+        return totalPower * flux;
     }
 
     /**
