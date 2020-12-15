@@ -42,6 +42,7 @@ Paiva 		Tunteja 	Mitä tein
 5.12    3 Selvensin koodia ja tein toisen graafin
 7.12    3 Tein kasvien kytkennän lämpötilaan
 
+15.12   2 Tein kasvit näyttävät graafit
 
 
 Yhteensä 44
