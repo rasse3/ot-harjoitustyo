@@ -43,6 +43,9 @@ Paiva 		Tunteja 	Mitä tein
 7.12    3 Tein kasvien kytkennän lämpötilaan
 
 15.12   2 Tein kasvit näyttävät graafit
+16.12   2 Tein käyttöliittymää
+17.12   0,5 Korjasin vaatimusmäärittelyn
+17.12   2  Tein lopullista ilmettä 
 
 
-Yhteensä 44
+Yhteensä 58,5
