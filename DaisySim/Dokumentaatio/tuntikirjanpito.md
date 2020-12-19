@@ -47,5 +47,6 @@ Paiva 		Tunteja 	Mitä tein
 17.12   0,5 Korjasin vaatimusmäärittelyn
 17.12   2  Tein lopullista ilmettä 
 
+19.12   5 Karsin koodista pois kesken jääneet osat
 
-Yhteensä 58,5
+Yhteensä 63,5
