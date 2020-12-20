@@ -19,7 +19,7 @@ public class PlanetControlTest {
     
     PlanetControl pc = new PlanetControl(0.5);
     StarControl sc = new StarControl();
-    Logger log = new Logger();
+    Logger log = new Logger(pc.getPlantList());
     
     Day day = new Day(sc,pc,log);
     

@@ -45,6 +45,28 @@ public class Flora {
         planetaryAlbedo = albedo;
     }
 
+    
+    public double getTotalAlbedo(){
+        double albedo = 0;
+        double freeGround = 1;
+        for (SpeciesP plant : plantSpecies)
+        {
+            albedo = albedo + plant.getCoverage()*plant.getAlbedo();
+            freeGround = freeGround - plant.getCoverage();
+        }
+        albedo =  (albedo + freeGround*0.5);
+        if (albedo > 1){
+            albedo = 1;
+           
+        }
+        if (albedo < 0){
+            albedo = 0;
+        }
+        return albedo;
+        
+    }
+    
+    
     /**
      * Sets planetary temperature.
      *
@@ -75,7 +97,10 @@ public class Flora {
         for (SpeciesP species : plantSpecies) {
             totalCoverage = totalCoverage + species.getCoverage();
         }
-        return totalCoverage - seaPercentage;
+        if (totalCoverage > 1) {
+            return 1;
+        } else if ( totalCoverage <)
+        return totalCoverage;
     }
 
     /**

@@ -34,13 +34,19 @@ public class SolarPowerChart {
 
     private XYChart xyChart;
     private XYChart xyChart2;
+    private XYChart xyChart3;
+    private XYChart xyChart4;
 
     private AnchorPane chartArea;
     
     private List<Double> yData;
     private List<Double> yData2;
+    private List<Double> yData3;
+    private List<Double> yData4;
     public static final String SERIES_NAME = "Kelvin";
     public static final String SERIES_NAME2 = "Wattia";
+    public static final String SERIES_NAME3 = "Tummia kasveja prosenttina pinta-alasta";
+    public static final String SERIES_NAME4 = "Vaaleita kasvjea prosenttina pinta-alasta";
     public static final String X_NAME = "Päivä";
     public Logger logger;
     public PlanetControl pc;
@@ -55,13 +61,6 @@ public class SolarPowerChart {
         this.day = day;
     }
 
-  //  public static void main(String[] args) {
-
-        // Setup the panel
-        //  final SolarPowerChart solarChart1 = new SolarPowerChart(new Logger(), new PlanetControl(1), new StarControl(), new Day(new PlanetControl(1), new StarControl, new Logger() );
-        //  solarChart1.go();
-   // }
-
     public void go() {
 
         final SwingWrapper<XYChart> swingWrapper = new SwingWrapper<XYChart>(getChart());
@@ -69,6 +68,13 @@ public class SolarPowerChart {
 
         final SwingWrapper<XYChart> swingWrapper2 = new SwingWrapper<XYChart>(getChart2());
         swingWrapper2.displayChart();
+        
+        final SwingWrapper<XYChart> swingWrapper3 = new SwingWrapper<XYChart>(getChart3());
+        swingWrapper3.displayChart();
+        
+        final SwingWrapper<XYChart> swingWrapper4 = new SwingWrapper<XYChart>(getChart4());
+        swingWrapper4.displayChart();
+        
     
         // Simulate a data feed
         TimerTask chartUpdaterTask = new TimerTask() {
@@ -85,6 +91,8 @@ public class SolarPowerChart {
 
                         swingWrapper.repaintChart();
                         swingWrapper2.repaintChart();
+                        swingWrapper3.repaintChart();
+                        swingWrapper4.repaintChart();
                     }
                 });
                 
@@ -112,7 +120,7 @@ public class SolarPowerChart {
         
          public XYChart getChart2() {
 
-        yData2 = getRandomData(5);
+        yData2 = getRandomData2(5);
 
         // Create Chart
         xyChart2 = new XYChartBuilder().width(500).height(400).theme(ChartTheme.Matlab).title("Tähden teho").build();
@@ -122,25 +130,69 @@ public class SolarPowerChart {
         return xyChart2;
     }
 
+            public XYChart getChart3() {
+
+        yData3 = getRandomData3(5);
+
+        // Create Chart
+        xyChart3 = new XYChartBuilder().width(500).height(400).theme(ChartTheme.Matlab).title("Tummat kasvit").build();
+       
+        xyChart3.addSeries(SERIES_NAME3, null, yData3);
+
+        return xyChart3;
+    }
+
+            
+            public XYChart getChart4() {
+
+        yData4 = getRandomData4(5);
+
+        // Create Chart
+        xyChart4 = new XYChartBuilder().width(500).height(400).theme(ChartTheme.Matlab).title("Vaaleat kasvit").build();
+       
+        xyChart4.addSeries(SERIES_NAME4, null, yData4);
+
+        return xyChart4;
+    }
+
+         
+         
+         
     public void updateData() {
 
         // Get some new data
         List<Double> newData = getRandomData(1);
         List<Double> newData2 = getRandomData2(1);
+        List<Double> newData3 = getRandomData3(1);
+        List<Double> newData4 = getRandomData4(1);
+        
+        
+        
 
         yData.addAll(newData);
         yData2.addAll(newData2);
+        yData3.addAll(newData3);
+        yData4.addAll(newData4);
 
         // Limit the total number of points
-        while (yData.size() > 20) {
+        while (yData.size() > 120) {
             yData.remove(0);
         }
-        while (yData2.size() > 20) {
+        while (yData2.size() > 120) {
             yData2.remove(0);
+        }
+        while (yData3.size() > 120) {
+            yData3.remove(0);
+        }
+        while (yData4.size() > 120) {
+            yData4.remove(0);
         }
 
         xyChart.updateXYSeries(SERIES_NAME, null, yData, null);
         xyChart2.updateXYSeries(SERIES_NAME2, null, yData2, null);
+        xyChart3.updateXYSeries(SERIES_NAME3, null, yData3, null);
+        xyChart4.updateXYSeries(SERIES_NAME4, null, yData4, null);
+
     }
 
     public List<Double> getRandomData(int numPoints) {
@@ -168,7 +220,30 @@ public class SolarPowerChart {
         return data;
     }
     
+      public List<Double> getRandomData3(int numPoints) {
+
+        List<Double> data = new CopyOnWriteArrayList<Double>();
+        for (int i = 0; i < numPoints; i++) {
+            
+            
+            data.add(logger.getNewestCoverage(logger.plantsAsList.get(0)));
+                }
+        
+        return data;
+    }
     
+    
+      public List<Double> getRandomData4(int numPoints) {
+
+        List<Double> data = new CopyOnWriteArrayList<Double>();
+        for (int i = 0; i < numPoints; i++) {
+            
+            
+            data.add(logger.getNewestCoverage(logger.plantsAsList.get(1)));
+                }
+        
+        return data;
+    }
     
       private void showChart(XYChart chart) {
         JPanel chartPanel = new XChartPanel<XYChart>(chart);

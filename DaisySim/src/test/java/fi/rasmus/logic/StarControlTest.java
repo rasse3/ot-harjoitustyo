@@ -202,18 +202,8 @@ public class StarControlTest{
              
     }
     
+
     
-    @Test
-    public void testFunctionHandler(){
-        
-        SC = new StarControl();
-        SC.setupFunctionHandler("sine", 1, 1);
-        FH = new FunctionHandler();
-        FH.setParameters("sine", 0.01, 0.03);
-        
-        assertEquals(SC.returnFunctionHandlerStats(), FH.toString());
-        
-    }
     
     
     @Test

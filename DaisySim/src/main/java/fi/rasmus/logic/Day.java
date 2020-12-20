@@ -39,14 +39,21 @@ public class Day {
         double radiance = sc.radiationPowerThisDay();
         double emission = pc.radiationEmission(previousTemp);
         double temperature = pc.temperatureThisDay(radiance, emission);
-
+        
+        
+        pc.calculateAlbedo();
+        pc.changeCoverages();
         log.log(radiance, temperature);
+        log.logPlants(pc.getPlantList().get(0),pc.getPlantList().get(0).getCoverage());
+        log.logPlants(pc.getPlantList().get(1),pc.getPlantList().get(1).getCoverage());
+
 
         ArrayList<SpeciesP> plants = pc.getPlantList();
 
         for (SpeciesP plant : plants) {
             double coverage = plant.getCoverage();
             log.logPlants(plant, coverage);
+            
         }
 
     }

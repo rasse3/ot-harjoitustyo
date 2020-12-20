@@ -18,14 +18,17 @@ public class Logger {
     ArrayList<Double> solarLuminosities;
     ArrayList<Double> planetaryTemperatures;
     HashMap<SpeciesP, Double> coverages;
+    public ArrayList<SpeciesP> plantsAsList = new ArrayList<>();
 
     /**
      * Constructor for the logger-object.
      */
-    public Logger() {
+    public Logger(ArrayList<SpeciesP> list) {
         solarLuminosities = new ArrayList<>();
         planetaryTemperatures = new ArrayList<>();
         coverages = new HashMap<>();
+        plantsAsList = list;
+        System.out.println(list);
 
     }
 
@@ -50,6 +53,8 @@ public class Logger {
         }
     }
 
+   
+    
     /**
      * Logger of plant coverages.
      *

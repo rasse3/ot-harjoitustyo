@@ -2,6 +2,7 @@ package fi.rasmus.logic;
 
 import fi.rasmus.gui.Config;
 import fi.rasmus.gui.SolarPowerChart;
+import java.util.Scanner;
 
 /**
  * This is the main class of the program.
@@ -26,9 +27,10 @@ public class Main {
         Config config = new Config();
         StarControl sc = new StarControl();
         PlanetControl pc = new PlanetControl(0.5);
-        Logger logger = new Logger();
+        Logger logger = new Logger(pc.getPlantList());
         Day day = new Day(sc, pc, logger);
-
+        Scanner scanner = new Scanner(System.in);
+        
         SolarPowerChart solPower = new SolarPowerChart(logger, pc, sc, day);
 
         logger.setLogging(logging);
@@ -36,49 +38,98 @@ public class Main {
 
         System.out.println(sc.returnFunctionHandlerStats());
 
-        //Test copmutation of 100 days;
-        for (int j = 0; j < 100; j++) {
-            day.executeADay();
-
+        
+        
+        boolean acceptableInput = false;
+        System.out.println("Syötä tähden vaihtelun amplitudi");
+        String amplitudeStr = scanner.nextLine();
+        double amplitude = 0;
+        while (!acceptableInput){
+            try {
+                amplitude = Double.parseDouble(amplitudeStr); 
+            } catch (NumberFormatException e) {
+                System.out.println("Syötä liukuluku väliltä 0-1");
+                amplitudeStr = scanner.nextLine();
+            } 
+            if (amplitude >= 0 && amplitude <= 1){
+                acceptableInput = true;
+            } else {
+                System.out.println("Syötä luku väliltä 0-1");
+                amplitudeStr = scanner.nextLine();
+            }
         }
-
-        //LOgger output for solar irradiance
-        for (Double dbl : logger.getSols()) {
-
-            System.out.println(dbl);
+        
+        
+        acceptableInput = false;
+        System.out.println("Syötä tähden vaihtelun taajuus (radiaania päivässä");
+        String frequencyStr = scanner.nextLine();
+        double frequency = 0;
+        while (!acceptableInput){
+            try {
+                frequency = Double.parseDouble(frequencyStr); 
+            } catch (NumberFormatException e) {
+                System.out.println("Syötä liukuluku väliltä 0-100");
+                frequencyStr = scanner.nextLine();
+            } 
+            if (frequency >= 0 && frequency <= 100){
+                acceptableInput = true;
+            } else {
+                System.out.println("Syötä luku väliltä 0-100");
+                frequencyStr = scanner.nextLine();
+            }
         }
-        //LOgger output for temperature
-        for (Double dbl : logger.getPlans()) {
-
-            System.out.println(dbl);
+        
+        
+        acceptableInput = false;
+        System.out.println("Syötä tähden purkauksen kuumuus suhteessa perustasoon");
+        String flareEffStr = scanner.nextLine();
+        double flareEff = 0;
+        while (!acceptableInput){
+            try {
+                flareEff = Double.parseDouble(flareEffStr); 
+            } catch (NumberFormatException e) {
+                System.out.println("Syötä liukuluku väliltä 0.5 - 1.5");
+                flareEffStr = scanner.nextLine();
+            } 
+            if (flareEff >= 0.5 && flareEff <= 1.5){
+                acceptableInput = true;
+            } else {
+                System.out.println("Syötä luku väliltä 0.5 - 1.5");
+                flareEffStr = scanner.nextLine();
+            }
         }
-
-        SpeciesP p1 = new SpeciesP("Plant1", 0.3, 293, 1, 1);
-        SpeciesP p2 = new SpeciesP("Plant2", 0.6, 293, 1, 1);
-
-        Flora flora = new Flora(0);
-
-        flora.addSpecies(p1);
-        flora.addSpecies(p2);
-
-        p1.setCoverage(0.5);
-        p2.setCoverage(0.5);
-
-        logger.logPlants(p1, 0.0);
-
-        logger.logPlants(p2, 0.0);
-
+        
+        
+        acceptableInput = false;
+        System.out.println("Syötä tähdenpurkauksen todennäköisyys (kerran kuudessa tunnissa)");
+        String flareProbStr = scanner.nextLine();
+        double flareProb = 0;
+        while (!acceptableInput){
+            try {
+                flareEff = Double.parseDouble(flareProbStr); 
+            } catch (NumberFormatException e) {
+                System.out.println("Syötä liukuluku väliltä 0.0 - 1.0");
+                flareProbStr = scanner.nextLine();
+            } 
+            if (flareProb >= 0.0 && flareProb <= 1.0){
+                acceptableInput = true;
+            } else {
+                System.out.println("Syötä luku väliltä 0.0 - 1.0");
+                flareProbStr = scanner.nextLine();
+            }
+        }
+        
+        
+        
+        sc.setupFunctionHandler("sine", amplitude, frequency);
+        
         solPower.go();
-        day.executeADay();
+        
 
-        double phase = 0;
-        double[][] data = new double[1][1];
+       
 
-        System.out.println(flora.countAlbedo());
-        System.out.println(flora.getTotalCoverage());
-
-        pc.calculateAlbedo();
-        System.out.println(pc.getAlbedo());
+        
+     
 
     }
 

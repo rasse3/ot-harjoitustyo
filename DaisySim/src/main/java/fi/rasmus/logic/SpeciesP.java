@@ -27,19 +27,15 @@ public class SpeciesP {
      * @param name Name of the species
      * @param albedo Percentage of light reflected off the species
      * @param idealTemperature Temperature most suited for the species
-     * @param co2Usage Metabolic change of carbon dioxide to oxygen of the
-     * species
-     * @param co2Threshold Value of carbon dioxide under which the species will
-     * not live
      */
     public SpeciesP(String name, double albedo, double idealTemperature, double co2Usage, double co2Threshold) {
 
         this.name = name;
         this.albedo = albedo;
-        this.idealTemperature = idealTemperature;
+        this.idealTemperature = 299.5;
         this.co2Usage = co2Usage;
         this.co2Threshold = co2Threshold;
-        this.coverage = 0;
+        this.coverage = 0.05;
         this.growthFactor = 0;
         this.localTemperature = 0;
         this.planetaryAlbedo = 0;
@@ -85,10 +81,10 @@ public class SpeciesP {
      *
      *
      */
-    public void calculateGrowthFactor() {
+    public double calculateGrowthFactor() {
 
         growthFactor = 1 - (0.003265) * Math.pow((idealTemperature - localTemperature), 2);
-
+        return growthFactor;
     }
 
     /**

@@ -48,6 +48,10 @@ public class PlanetControl {
         this.carbonDioxide = 1;
         this.methane = 1;
         this.cloudiness = 0;
+        SpeciesP plant1 = new SpeciesP("Tummat", 295.5, 0.25,0,0);
+        SpeciesP plant2 = new SpeciesP("Vaaleat", 295.5, 0.75,0,0);
+        this.florae.addSpecies(plant1);
+        this.florae.addSpecies(plant2);
     }
 
     /**
@@ -127,14 +131,18 @@ public class PlanetControl {
         return emission;
     }
 
+    public void changeCoverages(){
+        florae.changeCoverages();
+    }
+    
     /**
      * Calculates albedo of planet as function of plant-life.
      */
     public void calculateAlbedo() {
         albedo = sea * seaAlbedo;
-        albedo = (1 - sea) * (florae.getTotalCoverage() * plantAlbedo() + (1 - florae.getTotalCoverage()) * unCoveredAlbedo);
-        albedo = albedo - cloudiness * albedo + cloudiness * cloudAlbedo;
-
+        albedo = albedo + (1 - sea) * florae.getTotalAlbedo();
+     
+      
     }
 
     /**
@@ -168,51 +176,13 @@ public class PlanetControl {
         this.florae.addSpecies(plant);
     }
 
-    /**
-     * Return methane amount in the atmosphere as percentage compared to earth.
-     *
-     * @return Methane amount as related to values on earth
-     */
-    public double getMethane() {
-        return this.methane;
-    }
-
-    /**
-     * Return carbon dioxide amount in the atmosphere as percentage compared to
-     * earth.
-     *
-     * @return Carbon dioxide amount as related to values on earth
-     */
-    public double getCarbonDioxide() {
-        return this.carbonDioxide;
-    }
-
-    /**
-     * Return oxygen amount in the atmosphere as percentage compared to earth.
-     *
-     * @return Oxygen amount as related to values on earth
-     */
-    public double getOxygen() {
-        return this.oxygen;
-    }
-
-    /**
-     * Sets gas amounts.
-     *
-     * @param cO2 Carbon dioxide amount
-     * @param methnane Methane amount
-     * @param oxygen Oxygen amount
-     */
-    public void setGases(double cO2, double methnane, double oxygen) {
-        this.carbonDioxide = cO2;
-        this.methane = methane;
-        this.oxygen = oxygen;
-    }
-
+    
+  
     public ArrayList<SpeciesP> getPlantList() {
         return florae.getPlantList();
     }
 
+    
     
     /**
      * Returns plant coverage amounts as searched by a plant species-object.
@@ -227,5 +197,7 @@ public class PlanetControl {
             return 0.0;
         }
     }
+    
+    
 
 }

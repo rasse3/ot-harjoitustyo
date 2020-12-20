@@ -7,6 +7,7 @@ public class FunctionHandler {
 
     String function;
     ArrayList<String> allowedFunctions = new ArrayList<>();
+   
 
     double amplitude;
     double frequencyRadPerDay;
@@ -18,6 +19,7 @@ public class FunctionHandler {
         this.function = "sine";
         this.amplitude = 0.01;
         this.frequencyRadPerDay = 0.03;
+        allowedFunctions.add("sine");
 
     }
 

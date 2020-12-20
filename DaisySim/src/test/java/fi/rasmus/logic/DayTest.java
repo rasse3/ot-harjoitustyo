@@ -24,7 +24,7 @@ public class DayTest {
     double seaPercentage = 0.25;
     StarControl SC = new StarControl();
     PlanetControl PC = new PlanetControl(seaPercentage);
-    Logger Log = new Logger();
+    Logger Log = new Logger(PC.getPlantList());
     
     Day day;
     double sea_percentage;
@@ -46,7 +46,7 @@ public class DayTest {
         sea_percentage = 0.25;
         SC = new StarControl();
         PC = new PlanetControl(sea_percentage);
-        Log = new Logger();
+        Log = new Logger(PC.getPlantList());
         day = new Day(SC,PC,Log);
     }
     
@@ -65,7 +65,7 @@ public class DayTest {
         sea_percentage = 0.25;
         SC = new StarControl();
         PC = new PlanetControl(sea_percentage);
-        Log = new Logger();
+        Log = new Logger(PC.getPlantList());
         day = new Day(SC,PC,Log);
         day.executeADay();
         assertEquals(1, SC.returnPhase());
