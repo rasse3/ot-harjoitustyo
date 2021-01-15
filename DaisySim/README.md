@@ -5,7 +5,6 @@ DaisySim
 Sovelluksella pystyy simuloimaan yksinkertaistettua ekosysteemiä. Tarkoitus on pystyä muodostamaan ekosysteemi kasveista ja eläimistä, jotka vuorovaikutuksellaan vakauttavat planeetan olosuhteita muuttuvassa ympäristössä. Ajatus perustuu ns. Gaia-teoriaan ja alkuperäiseen Daisyworld-simulaattoriin, jossa mallinnettiin kahden kasvilajin yhteisvaikutuksia. Kyseinen Daisyworld löytyy tästä ohjelmasta asetettavana erityistapauksena. 
 
 
-Voit luoda 
 
 
 Dokumentaatio
