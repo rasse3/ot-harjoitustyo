@@ -48,15 +48,16 @@ public class PlanetControl {
         this.carbonDioxide = 1;
         this.methane = 1;
         this.cloudiness = 0;
-        SpeciesP plant1 = new SpeciesP("Tummat", 295.5, 0.25,0,0);
-        SpeciesP plant2 = new SpeciesP("Vaaleat", 295.5, 0.75,0,0);
+        SpeciesP plant1 = new SpeciesP("Tummat", 295.5, 0.25, 0, 0);
+        SpeciesP plant2 = new SpeciesP("Vaaleat", 295.5, 0.75, 0, 0);
         this.florae.addSpecies(plant1);
         this.florae.addSpecies(plant2);
     }
 
     /**
      * Returns the initial temperature of the planet to be used by the logger.
-     * @param luminosity The luminosity of the sun 
+     *
+     * @param luminosity The luminosity of the sun
      * @return The initial temperature of the planet.
      */
     public double setInitial(double luminosity) {
@@ -111,7 +112,7 @@ public class PlanetControl {
     }
 
     /**
-     * Updates the emissivityFactored-variable;
+     * Updates the emissivityFactored-variable.
      */
     public void calculateEmissivityFactor() {
         emissivityFactored = basicEmissivity + carbonDioxide * 0.02 + methane * 0.004;
@@ -131,18 +132,20 @@ public class PlanetControl {
         return emission;
     }
 
-    public void changeCoverages(){
+    /**
+     * Changes coverage-values.
+     */
+    public void changeCoverages() {
         florae.changeCoverages();
     }
-    
+
     /**
      * Calculates albedo of planet as function of plant-life.
      */
     public void calculateAlbedo() {
         albedo = sea * seaAlbedo;
         albedo = albedo + (1 - sea) * florae.getTotalAlbedo();
-     
-      
+
     }
 
     /**
@@ -176,20 +179,16 @@ public class PlanetControl {
         this.florae.addSpecies(plant);
     }
 
-    
-  
     public ArrayList<SpeciesP> getPlantList() {
         return florae.getPlantList();
     }
 
-    
-    
     /**
      * Returns plant coverage amounts as searched by a plant species-object.
+     *
      * @param plant Plant-object to use as key for search
      * @return The coverage of searched plant
      */
-    
     public double plantCoverage(SpeciesP plant) {
         if (florae.getPlantList().contains(plant)) {
             return plant.getCoverage();
@@ -197,7 +196,5 @@ public class PlanetControl {
             return 0.0;
         }
     }
-    
-    
 
 }

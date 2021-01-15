@@ -25,7 +25,6 @@ public class StarControl {
     double phase;
     // This is the energy flux of the Sun 
     double flux = 917;
- 
 
     //Function handling defines the used function to compute daily power
     FunctionHandler functionHandler = new FunctionHandler();
@@ -87,9 +86,7 @@ public class StarControl {
         phase = 0.0;
 
     }
-    
-    
-    
+
     /**
      * This function resets the random-function to start over with the same
      * seed.
@@ -188,12 +185,12 @@ public class StarControl {
         }
         return number;
     }
-    
+
     /**
      * Adds allowed function to list of functions.
+     *
      * @param function Function to add to list
      */
-
     public void addAllowedFunctionToHandler(String function) {
         functionHandler.addToAllowedFunctions(function);
     }

@@ -27,6 +27,8 @@ public class SpeciesP {
      * @param name Name of the species
      * @param albedo Percentage of light reflected off the species
      * @param idealTemperature Temperature most suited for the species
+     * @param co2Usage not used in this version
+     * @param co2Threshold not used in this version
      */
     public SpeciesP(String name, double albedo, double idealTemperature, double co2Usage, double co2Threshold) {
 
@@ -79,7 +81,7 @@ public class SpeciesP {
     /**
      * Calculates the rate of growth in given temperature.
      *
-     *
+     *@return growthFactor the growth parameter
      */
     public double calculateGrowthFactor() {
 

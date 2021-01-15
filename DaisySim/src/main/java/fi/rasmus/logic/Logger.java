@@ -22,6 +22,7 @@ public class Logger {
 
     /**
      * Constructor for the logger-object.
+     * @param list the list of planetary values
      */
     public Logger(ArrayList<SpeciesP> list) {
         solarLuminosities = new ArrayList<>();

@@ -45,28 +45,30 @@ public class Flora {
         planetaryAlbedo = albedo;
     }
 
+   /**
+    * Returns total albedo of planet.
+    * @return albedo the albedo of the planet
+    */
     
-    public double getTotalAlbedo(){
+    public double getTotalAlbedo() {
         double albedo = 0;
         double freeGround = 1;
-        for (SpeciesP plant : plantSpecies)
-        {
-            albedo = albedo + plant.getCoverage()*plant.getAlbedo();
+        for (SpeciesP plant : plantSpecies) {
+            albedo = albedo + plant.getCoverage() * plant.getAlbedo();
             freeGround = freeGround - plant.getCoverage();
         }
-        albedo =  (albedo + freeGround*0.5);
-        if (albedo > 1){
+        albedo = (albedo + freeGround * 0.5);
+        if (albedo > 1) {
             albedo = 1;
-           
+
         }
-        if (albedo < 0){
+        if (albedo < 0) {
             albedo = 0;
         }
         return albedo;
-        
+
     }
-    
-    
+
     /**
      * Sets planetary temperature.
      *
@@ -99,7 +101,9 @@ public class Flora {
         }
         if (totalCoverage > 1) {
             return 1;
-        } else if ( totalCoverage <)
+        } else if (totalCoverage < 0) {
+            return 0;
+        }
         return totalCoverage;
     }
 
@@ -158,7 +162,6 @@ public class Flora {
     /**
      * Calculates new coverages.
      */
-    
     public void changeCoverages() {
 
         double totalChange = 0;
@@ -199,19 +202,19 @@ public class Flora {
 
     /**
      * Returns list of existing plant species.
+     *
      * @return List of plant-species
      */
-    
     public ArrayList<SpeciesP> getPlantList() {
         return this.plantSpecies;
     }
-    
+
     /**
      * Get coverage of planet with the species as key.
+     *
      * @param plant Key plant-object
      * @return Coverage of the plant
      */
-
     public double getCoverage(SpeciesP plant) {
         return plant.getCoverage();
     }
